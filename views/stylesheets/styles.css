@@ -1,0 +1,172 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    border-top: 3px solid black;
+    text-align: center;
+    margin: 0 0 3em;
+}
+
+h1 {
+    font-size: 2em;
+    margin-top: .2em;
+}
+
+h2 {
+    font-size:1.75em;
+}
+
+h3 {
+    font-size: 1.25em;
+    margin-top: .3em;
+}
+
+h4 {
+    display: inline;
+}
+
+nav {
+    margin: .7em;
+}
+
+a {
+    text-decoration: none;
+}
+
+.link, .link:visited {
+    color: rgb(0, 0, 179);
+    text-decoration: none;
+}
+
+.link:hover {
+    border-bottom: 1px dotted gray;
+    color:black;
+}
+
+#pdf_link {
+    padding-top: 10px;
+}
+
+.no-bullets {
+    list-style-type: none;
+    margin-left: 5em;
+}
+
+.no-bullets li {
+    margin: .2em 0;
+    text-indent: -3em ;
+}
+
+.bullets {
+    list-style-type: initial;
+    margin-left:1.1em;
+}
+
+.bullets li {
+    text-indent: 0;
+}
+
+.skills {
+    margin-left: 3.2em;
+}
+
+.button {
+    border-radius: 20px;
+    text-decoration: none;
+    color: black;
+    padding: .4em .7em;
+    border: 1px solid black;
+    vertical-align: middle;
+    transition: color 0.2s linear, border-color 0.2s linear;
+    display: inline-block;
+    margin: .2em .1em;
+}
+
+.button:hover {
+    color: gray;
+    border: 1px solid gray;
+    transition: color 0.2s linear, border 0.2s linear; 
+}
+
+.svgbutton {
+    margin: .2em .1em;
+    background-color: black;
+    width: 2.3em;
+    height: 2.3em;
+    vertical-align: middle;
+    transition: background-color 0.2s linear; 
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+}
+
+.svgbutton img {
+    width: 2em;
+    height: 100%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.svgbutton:hover {
+    background-color: gray;
+    border: none;
+    transition: background-color 0.2s linear; 
+}
+
+#navbar {
+    text-align: left;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+    overflow: hidden;
+    margin-bottom: .1em;
+}
+
+#navbar p {
+    float:left; 
+    margin-top: 1.4em; 
+    margin-left: 1em;
+    display: inline-block;
+}
+
+#content-wrapper {
+    margin:20px auto;
+    max-width: 1250px;
+    text-align: center;
+}
+
+#main-content{
+    width: 96%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom:1em;
+}
+
+#headshot {
+    border-radius: 50%;
+    border: 10px solid black;
+    width:25%;
+    max-width:300px;
+    min-width:200px;
+    display:inline-block;
+    vertical-align: middle;
+}
+
+#contact {
+    float:right;
+}
+
+#contact img {
+    width: 2em;
+    padding: .4em .1em;
+}
