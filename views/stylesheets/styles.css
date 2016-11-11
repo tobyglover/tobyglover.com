@@ -124,10 +124,15 @@ a {
     transition: background-color 0.2s linear; 
 }
 
+#navbar-wrapper {
+   border-bottom: 1px solid lightgray; 
+   width: 100%;
+}
+
 #navbar {
-    text-align: left;
+    max-width: 1000px;
     width: 100%;
-    border-bottom: 1px solid lightgray;
+    margin: 0 auto; 
     overflow: hidden;
     margin-bottom: .1em;
 }
