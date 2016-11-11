@@ -182,6 +182,10 @@ a {
     padding: .4em .1em;
 }
 
+#homepage-description, #homepage-description *{
+    font-size: 18px;
+}
+
 @media screen and (max-width: 530px) {
     #content-wrapper {
         margin-top: 1em;
