@@ -205,8 +205,8 @@ a:visited {
     font-size: 18px;
 }
 
-@media screen and (max-width: 530px) {
-    #content-wrapper {
+@media screen and (max-width: 450px) {
+    .home {
         margin-top: 1em;
     }
 }
