@@ -28,10 +28,17 @@ app.get('/resume', function(request, response) {
 	});
 });
 
+app.get('/projects', function(request, response) {
+	response.render('pages/projects', {
+		title: "Projects",
+		navLinks: getNavLinks('Projects')
+	});
+});
+
 function getNavLinks(pageName) {
 	var navLinks = {Home: "/",
 					Resume: "/resume",
-					Projects: "/resume"};
+					Projects: "/projects"};
 	delete navLinks[pageName];
 	return navLinks;
 }

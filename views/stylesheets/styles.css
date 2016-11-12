@@ -40,16 +40,25 @@ nav {
 
 a {
     text-decoration: none;
+    display: block;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
 }
 
 .link, .link:visited {
     color: rgb(0, 0, 179);
     text-decoration: none;
+    display: inline-block;
+    box-sizing: border-box;
 }
 
 .link:hover {
     border-bottom: 1px dotted gray;
     color:black;
+    cursor: pointer;
 }
 
 #pdf_link {
@@ -126,6 +135,27 @@ a {
     transition: background-color 0.2s linear; 
 }
 
+.main-content {
+    text-align: left;
+    width: 96%;
+    max-width: 700px;
+    margin: 1em auto 0 auto;
+}
+
+.home {
+    text-align: center;
+    margin-top: 7em;
+}
+
+.project {
+    border-bottom: 1px solid lightgray;
+    padding: 1em 0;
+}
+
+.project .link {
+    font-size: 18px;
+}
+
 #navbar-wrapper {
    border-bottom: 1px solid lightgray; 
    width: 100%;
@@ -149,18 +179,6 @@ a {
     margin-top: .4em; 
     margin-left: 1em;
     display: inline-block;
-}
-
-#content-wrapper {
-    margin: 6em auto 1em auto;
-    max-width: 1250px;
-    text-align: center;
-}
-
-#main-content{
-    width: 96%;
-    max-width: 700px;
-    margin: 0 auto;
 }
 
 #headshot {
