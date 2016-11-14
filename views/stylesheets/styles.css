@@ -38,14 +38,9 @@ nav {
     margin: .7em;
 }
 
-a {
+a, a:visited {
     text-decoration: none;
     display: block;
-    color: black;
-}
-
-a:visited {
-    text-decoration: none;
     color: black;
 }
 
@@ -53,7 +48,7 @@ a:visited {
     color: rgb(0, 0, 179);
     text-decoration: none;
     display: inline-block;
-    box-sizing: border-box;
+    border-bottom: 1px dotted transparent;
 }
 
 .link:hover {
