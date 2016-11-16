@@ -18,17 +18,13 @@ h3 {
 
 .date {
 	font-style: italic; 
-	clear: right;
 }
+
 
 .right-info {
 	float: right;
 	clear: right;
-}
-
-.location {
-	float: right;
-	clear: right;
+	text-align: right;
 }
 
 .section-list {
@@ -52,4 +48,11 @@ h3 {
     width: 7em;
     font-weight: bold;
     vertical-align: text-top;
+}
+
+@media screen and (max-width: 590px) {
+    .right-info {
+    	float: none;
+    	text-align: left;
+    }
 }
