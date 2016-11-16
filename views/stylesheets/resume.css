@@ -1,0 +1,55 @@
+table {
+	margin-left: 2em;
+}
+
+li {
+	padding: .05em 0;
+}
+
+h3 {
+	border-bottom: 1px solid black;
+}
+
+.title { 
+	font-style: italic; 
+	font-weight: none;
+	display: inline-block;
+}
+
+.date {
+	font-style: italic; 
+	clear: right;
+}
+
+.right-info {
+	float: right;
+	clear: right;
+}
+
+.location {
+	float: right;
+	clear: right;
+}
+
+.section-list {
+	margin-left: 2em;
+}
+
+.no-bullets {
+    list-style-type: none;
+}
+
+.bullets {
+    list-style-type: initial;
+    margin-left:1.3em;
+}
+
+.bullets li {
+    text-indent: 0;
+}
+
+.table-header {
+    width: 7em;
+    font-weight: bold;
+    vertical-align: text-top;
+}
