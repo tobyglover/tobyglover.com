@@ -34,7 +34,8 @@ app.get('/', function(request, response) {
 app.get('/resume', function(request, response) {
 	response.render('pages/resume', {
 		title: "Resume",
-		navLinks: getNavLinks('Resume')
+		navLinks: getNavLinks('Resume'),
+		extensions: ['<link rel="stylesheet" href="styles/resume.css" type="text/css">']
 	});
 });
 

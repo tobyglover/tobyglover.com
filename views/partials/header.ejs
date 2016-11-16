@@ -6,6 +6,7 @@
 	<meta charset="UTF-8">
     <link rel="stylesheet" href="styles/styles.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300|Open+Sans" rel="stylesheet">
+    <% if (typeof extensions !== 'undefined') { for (var i = 0; i < extensions.length; i++) { %><%- extensions[i] %><% } } %>
 </head>
 <body>
     

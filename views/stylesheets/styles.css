@@ -23,6 +23,7 @@ h1 {
 
 h2 {
     font-size:1.75em;
+    margin: 0;
 }
 
 h3 {
@@ -57,33 +58,6 @@ a, a:visited {
     cursor: pointer;
 }
 
-#pdf_link {
-    padding-top: 10px;
-}
-
-.no-bullets {
-    list-style-type: none;
-    margin-left: 5em;
-}
-
-.no-bullets li {
-    margin: .2em 0;
-    text-indent: -3em ;
-}
-
-.bullets {
-    list-style-type: initial;
-    margin-left:1.1em;
-}
-
-.bullets li {
-    text-indent: 0;
-}
-
-.skills {
-    margin-left: 3.2em;
-}
-
 .button {
     border-radius: 20px;
     background-color: white;
@@ -92,7 +66,7 @@ a, a:visited {
     padding: .4em .7em;
     border: 1px solid black;
     vertical-align: middle;
-    transition: color 0.2s linear, border-color 0.2s linear, background-color 0.2s linear;
+    transition: color 0.15s ease-in, border-color 0.15s ease-in, background-color 0.15s ease-in;
     display: inline-block;
     margin: .2em .1em;
 }
@@ -101,7 +75,7 @@ a, a:visited {
     color: #1e5abc;
     background-color: #f2f9ff;
     border: 1px solid #1e5abc;
-    transition: color 0.2s linear, border 0.2s linear, background-color 0.2s linear; 
+    transition: color 0.15s ease-in, border 0.15s ease-in, background-color 0.15s ease-in; 
 }
 
 .svgbutton {
@@ -110,7 +84,7 @@ a, a:visited {
     width: 2.3em;
     height: 2.3em;
     vertical-align: middle;
-    transition: background-color 0.2s linear; 
+    transition: background-color 0.15s ease-in; 
     display: inline-block;
     position: relative;
     border-radius: 50%;
@@ -128,7 +102,7 @@ a, a:visited {
 .svgbutton:hover {
     background-color: #1e5abc;
     border: none;
-    transition: background-color 0.2s linear; 
+    transition: background-color 0.15s ease-in; 
 }
 
 .main-content {
@@ -136,11 +110,6 @@ a, a:visited {
     width: 96%;
     max-width: 700px;
     margin: 1em auto 0 auto;
-}
-
-.home {
-    text-align: center;
-    margin-top: 7em;
 }
 
 .project {
@@ -179,7 +148,7 @@ a, a:visited {
 
 #headshot {
     border-radius: 50%;
-    border: 10px solid black;
+    border: .3em solid black;
     width:25%;
     max-width:300px;
     min-width:200px;
@@ -187,17 +156,13 @@ a, a:visited {
     vertical-align: middle;
 }
 
-#contact {
-    float:right;
-}
-
-#contact img {
-    width: 2em;
-    padding: .4em .1em;
-}
-
 #homepage-description, #homepage-description *{
     font-size: 18px;
+}
+
+.home {
+    text-align: center;
+    margin-top: 7em;
 }
 
 @media screen and (max-width: 450px) {
