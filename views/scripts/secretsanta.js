@@ -8,6 +8,14 @@ function init() {
 	sendBtn.addEventListener("click", send);
 	document.getElementById("addUserButton").addEventListener("click", addUserField);
 
+	reset();
+}
+
+function reset() {
+	while (uc.firstChild) {
+	    uc.removeChild(uc.firstChild);
+	}
+
 	addUserField();
 	addUserField();
 }
@@ -116,6 +124,7 @@ function send() {
 			    if(xhr.readyState == 4) {
 			    	if (xhr.status == 200) {
 			    		alert(xhr.responseText);
+			    		reset();
 			    	} else {
 			    		window.alert("There was an error processing your request");
 			    	}
