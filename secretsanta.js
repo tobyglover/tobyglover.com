@@ -65,8 +65,8 @@ function writeMail(user, givesTo) {
 function writeContent(userName, givesToName) {
 	return `<html>
 			<body style="margin: 0">
-				<div style="background-color: #25b241; width: 100%; height:100px;">
-					<img src="http://tobyglover.herokuapp.com/images/santa.png" alt="santa" style="height:99px; vertical-align: middle;"/>
+				<div style="background-color: #25b241;">
+					<img src="http://tobyglover.herokuapp.com/images/santa.png" alt="santa" style="height:7em; vertical-align: middle;"/>
 					<h1 style="color: #FFFFFF; margin: auto 0; display: inline-block; vertical-align: middle";>Your Secret Santa Assignment</h1>
 				</div>
 				
