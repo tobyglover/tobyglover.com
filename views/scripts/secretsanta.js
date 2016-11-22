@@ -108,7 +108,21 @@ function send() {
 
 	if (userList) {
 		if (userList.length > 1) {
-			console.log(userList);
+			var xhr = new XMLHttpRequest();
+
+			xhr.open('POST', '/api/secretsanta', true);
+			xhr.setRequestHeader('Content-type', 'application/json');
+			xhr.onreadystatechange = function() {
+			    if(xhr.readyState == 4) {
+			    	if (xhr.status == 200) {
+			    		alert(xhr.responseText);
+			    	} else {
+			    		window.alert("There was an error processing your request");
+			    	}
+			    }
+			};
+			xhr.send(JSON.stringify(userList));
+
 		} else {
 			window.alert("Error: More than one user is required.")
 		}

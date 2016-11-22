@@ -19,9 +19,10 @@ app.use(express.static(__dirname + '/public'));
 app.use("/styles",express.static(__dirname + "/views/stylesheets"));
 app.use("/scripts",express.static(__dirname + "/views/scripts"));
 
-// views is directory for all template files
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+
+app.use(bodyParser.json());
 
 app.get('/', function(request, response) {
 	response.render('pages/index', {
@@ -54,6 +55,11 @@ app.get('/projects/secretsanta', function(request, response) {
 		extensions: ['<link rel="stylesheet" href="/styles/secretsanta.css" type="text/css">',
 					 '<script type="text/javascript" src="/scripts/secretsanta.js"></script>']
 	});
+});
+
+app.post('/api/secretsanta', function(request, response) {
+	require("./secretsanta.js").run(request.body);
+	response.sendStatus(200);
 });
 
 function getNavLinks(pageName) {

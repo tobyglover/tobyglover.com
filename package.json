@@ -12,7 +12,8 @@
   "dependencies": {
     "body-parser": "latest",
     "ejs": "latest",
-    "express": "latest"
+    "express": "latest",
+    "sendgrid": "^4.7.1"
   },
   "license": "MIT",
   "private": true
