@@ -2,14 +2,6 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
-var projects = {"DejaView": {"short":"Service that allowed anyone to create private and anonymous photo albums where any user with the access code could upload and view full-resolution photos.",
-							 "link": "https://github.com/wtglover/DejaView"},
-				"TwoCents": {"short":"Android application where users could anonymously post questions for others in their area to vote on the answer or solution",
-							 "link": "https://github.com/wtglover/twocentsapp-backend"},
-				"Secret Santa": {"short":"Simple service that emails a group of users their secret santa assignments",
-								 "long": "Simple service that emails a group of users their secret santa assignments, using a derangement algorithm to ensure a user will not get themself",
-								 "link": "projects/secretsanta"}};
-
 app.set('port', (process.env.PORT || 5000));
 app.listen(app.get('port'), function() {
  	console.log('Node app is running on port', app.get('port'));
@@ -43,7 +35,6 @@ app.get('/projects', function(request, response) {
 	response.render('pages/projects', {
 		title: "Projects",
 		navLinks: getNavLinks('Projects'),
-		"projects": projects
 	});
 });
 
@@ -51,7 +42,6 @@ app.get('/projects/secretsanta', function(request, response) {
 	response.render('pages/secretsanta', {
 		title: "Secret Santa",
 		navLinks: getNavLinks(),
-		info: projects["Secret Santa"],
 		extensions: ['<link rel="stylesheet" href="/styles/secretsanta.css" type="text/css">',
 					 '<script type="text/javascript" src="/scripts/secretsanta.js"></script>']
 	});
