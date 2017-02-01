@@ -2,6 +2,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
+var test = false;
+
 app.set('port', (process.env.PORT || 5000));
 app.listen(app.get('port'), function() {
  	console.log('Node app is running on port', app.get('port'));
@@ -16,10 +18,22 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.json());
 
+app.get("*", function(request, response, next) {
+	test = false;
+	for (var i = 0; i < request.subdomains.length; i++) {
+		if (request.subdomains[i] == "test") {
+			test = true;
+		}
+	}
+	next();
+});
+
 app.get('/', function(request, response) {
+	console.log(test);
 	response.render('pages/index', {
 		title: "Toby Glover",
-		navLinks: getNavLinks('Home')
+		navLinks: getNavLinks('Home'),
+		'test': test
 	});
 });
 
@@ -27,7 +41,8 @@ app.get('/resume', function(request, response) {
 	response.render('pages/resume', {
 		title: "Resume",
 		navLinks: getNavLinks('Resume'),
-		extensions: ['<link rel="stylesheet" href="/styles/resume.css" type="text/css">']
+		extensions: ['<link rel="stylesheet" href="/styles/resume.css" type="text/css">'],
+		'test': test
 	});
 });
 
@@ -35,6 +50,7 @@ app.get('/projects', function(request, response) {
 	response.render('pages/projects', {
 		title: "Projects",
 		navLinks: getNavLinks('Projects'),
+		'test': test
 	});
 });
 
@@ -43,7 +59,8 @@ app.get('/projects/secretsanta', function(request, response) {
 		title: "Secret Santa",
 		navLinks: getNavLinks(),
 		extensions: ['<link rel="stylesheet" href="/styles/secretsanta.css" type="text/css">',
-					 '<script type="text/javascript" src="/scripts/secretsanta.js"></script>']
+					 '<script type="text/javascript" src="/scripts/secretsanta.js"></script>'],
+		'test': test
 	});
 });
 
