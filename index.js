@@ -3,8 +3,9 @@ var app = express();
 var bodyParser = require('body-parser');
 
 var test = false;
+var localPort = 5000;
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || localPort));
 app.listen(app.get('port'), function() {
  	console.log('Node app is running on port', app.get('port'));
 });
@@ -20,16 +21,20 @@ app.use(bodyParser.json());
 
 app.get("*", function(request, response, next) {
 	test = false;
-	for (var i = 0; i < request.subdomains.length; i++) {
-		if (request.subdomains[i] == "test") {
-			test = true;
+	if (request.hostname == 'test.localhost') {
+        test = true;
+    } else { 
+    	for (var i = 0; i < request.subdomains.length; i++) {
+			if (request.subdomains[i] == "test") {
+				test = true;
+				break;
+			}
 		}
 	}
 	next();
 });
 
 app.get('/', function(request, response) {
-	console.log(test);
 	response.render('pages/index', {
 		title: "Toby Glover",
 		navLinks: getNavLinks('Home'),
