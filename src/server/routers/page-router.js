@@ -3,7 +3,6 @@ var router    = express.Router();
 
 router.get('/', function(request, response) {
 	response.render('pages/index', {
-		title: "",
 		navLinks: getNavLinks('Home')
 	});
 });
