@@ -112,9 +112,18 @@ a, a:visited {
     margin: 1em auto 0 auto;
 }
 
+.project-section h3 {
+    border-bottom: 1px solid black;
+    padding-bottom: .5em;
+}
+
 .project {
-    border-bottom: 1px solid lightgray;
     padding: 1em 0;
+    border-bottom: 1px solid lightgray;
+}
+
+.project:last-child { 
+    border: none;
 }
 
 .project .link {
