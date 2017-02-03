@@ -22,6 +22,15 @@ router.get('/projects', function(request, response) {
 	});
 });
 
+router.get('/projects/sudoku', function(request, response) {
+	response.render('pages/sudoku', {
+		title: "Sudoku Solver",
+		navLinks: getNavLinks(),
+		extensions: ['<link rel="stylesheet" href="/styles/sudoku.css" type="text/css">',
+					 '<script type="text/javascript" src="/scripts/sudoku.js"></script>']
+	});
+});
+
 router.get('/projects/secretsanta', function(request, response) {
 	response.render('pages/secretsanta', {
 		title: "Secret Santa",

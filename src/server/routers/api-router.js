@@ -9,4 +9,9 @@ router.post('/secretsanta', function(request, response) {
 	response.sendStatus(200);
 });
 
+router.post('/sudoku', function(request, response) {
+	console.log(request.body);
+	response.sendStatus(200);
+});
+
 module.exports = router;
