@@ -75,7 +75,7 @@ function validate(e) {
 
 	for (var i = 0; i < 9; i++) {
 		for (var j = 0; j < 9; j++) {
-			if (board[i][j] > 10 || board[i][j] < 0) {
+			if (boardData[i][j] > 10 || boardData[i][j] < 0) {
 				window.alert("Invalid value on board");
 				return;
 			}
@@ -97,10 +97,17 @@ function submit() {
 
     xhr.onreadystatechange = function() {
         if (this.readyState == 4) {
+        	var resData = JSON.parse(this.responseText);
+
             if (this.status == 200) {
-                resData = JSON.parse(this.responseText);
+                var board = resData.board;
             } else {
-            	window.alert("There was an error processing your request");
+            	if (resData) {
+            		window.alert(resData.reason);
+            	} else {
+            		window.alert("There was an error processing your request");
+            	}
+            	hideProcessing();
             }
         }
     };
