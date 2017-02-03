@@ -39,7 +39,7 @@ function drawSection(sectionRow, sectionCol) {
 function createCell(row, col) {
 	var cell = document.createElement("input");
 	cell.className = "cell";
-	cell.type = "number";
+	cell.type = "text";
 	cell.addEventListener("keyup", function(e) {
 		if (parseInt(cell.value) < 10) {
 			updateBoardData(row, col, parseInt(cell.value));
