@@ -3,9 +3,8 @@
 	margin: 1em auto;
 }
 
-#submit {
+button {
 	float: right;
-	background-color: #48ad43;
 	padding: .5em 1em;
 	border: none;
 	border-radius: 10px;
@@ -13,9 +12,24 @@
 	color: white;
 }
 
-#submit:hover {
+button:hover {
 	cursor: pointer;
+}
+
+#submit {
+	background-color: #48ad43;
+}
+
+#submit:hover {
 	background-color: #61bc5c;
+}
+
+#clear, #clear-solution {
+	background-color: #f96868;
+}
+
+#clear:hover, #clear-solution:hover {
+	background-color: #ff8989;
 }
 
 #loading {
@@ -78,6 +92,10 @@
 	height: 1.5em;
 	font-size: 30px;
 	border: 1px solid gray;
+}
+
+.solved {
+	background-color: #a0ef83;
 }
 
 .section:last-child {

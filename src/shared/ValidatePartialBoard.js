@@ -3,7 +3,7 @@ module.exports.check = function (partialBoard) {
 	var validBoard = true;
 
 	while (i < 9 && validBoard) {
-		for (var j = 0; j < 10; j++) {
+		for (var j = 0; j < 9; j++) {
 			if (partialBoard[i][j]) {
 				validBoard = fitsConstraints(partialBoard, i, j);
 

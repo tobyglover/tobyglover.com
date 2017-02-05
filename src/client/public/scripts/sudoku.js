@@ -4,6 +4,8 @@ function init() {
 	board = document.getElementById("board");
 	boardData = initBoardData();
 	document.getElementById("submit").addEventListener("click", validate);
+	document.getElementById("clear").addEventListener("click", clear);
+	document.getElementById("clear-solution").style["display"] = "none";
 
 	for (var sectionRow = 0; sectionRow < 3; sectionRow++) {
 		var row = document.createElement("div");
@@ -13,6 +15,22 @@ function init() {
 		}
 		board.appendChild(row);
 	}
+}
+
+function clear() {
+	if (window.confirm("Are you sure you want to clear?")) {
+		board.innerHTML = "";
+		init();
+	}
+}
+
+function clearSolution() {
+	var solutionCells = document.getElementsByClassName("solved");
+	while(solutionCells.length > 0) {
+		solutionCells[0].value = "";
+		solutionCells[0].className = "cell";
+	}
+	document.getElementById("clear-solution").style["display"] = "none";
 }
 
 function initBoardData() {
@@ -40,8 +58,9 @@ function createCell(row, col) {
 	var cell = document.createElement("input");
 	cell.className = "cell";
 	cell.type = "text";
+	cell.id = row.toString() + col.toString();
 	cell.addEventListener("keyup", function(e) {
-		if (parseInt(cell.value) < 10) {
+		if (parseInt(cell.value) > 0 && parseInt(cell.value) < 10) {
 			updateBoardData(row, col, parseInt(cell.value));
 		} else if (cell.value == "") {
 			updateBoardData(row, col, null);
@@ -60,7 +79,7 @@ function blockCharacters(e) {
         return;
     }
     // Ensure that it is a number and stop the keypress
-    if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+    if ((e.shiftKey || (e.keyCode < 49 || e.keyCode > 57)) && (e.keyCode < 97 || e.keyCode > 105)) {
         e.preventDefault();
     }
 
@@ -101,14 +120,15 @@ function submit() {
 
             if (this.status == 200) {
                 var board = resData.board;
+                drawSolvedBoard(board);
             } else {
             	if (resData) {
             		window.alert(resData.reason);
             	} else {
             		window.alert("There was an error processing your request");
             	}
-            	hideProcessing();
             }
+            hideProcessing();
         }
     };
 
@@ -116,6 +136,20 @@ function submit() {
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send(JSON.stringify(boardData));
     showProcessing();
+}
+
+function drawSolvedBoard(board) {
+	for (var row = 0; row < 9; row++) {
+		for (var col = 0; col < 9; col++) {
+			var cell = document.getElementById(row.toString() + col.toString());
+			if (cell.value == "") {
+				cell.className = cell.className + " solved";
+				cell.value = board[row][col];
+			}
+		}
+	}
+	document.getElementById("clear-solution").addEventListener("click", clearSolution);
+	document.getElementById("clear-solution").style["display"] = "inline";
 }
 
 function showProcessing() {
