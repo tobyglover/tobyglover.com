@@ -3,9 +3,10 @@ window.addEventListener('DOMContentLoaded', init, false);
 function init() {
 	board = document.getElementById("board");
 	boardData = initBoardData();
+	countNums = 0;
+	clearBtn = document.getElementById("clear");
 	document.getElementById("submit").addEventListener("click", validate);
-	document.getElementById("clear").addEventListener("click", clear);
-	document.getElementById("clear-solution").style["display"] = "none";
+	clearBtn.addEventListener("click", clear);
 
 	for (var sectionRow = 0; sectionRow < 3; sectionRow++) {
 		var row = document.createElement("div");
@@ -18,7 +19,7 @@ function init() {
 }
 
 function clear() {
-	if (window.confirm("Are you sure you want to clear?")) {
+	if (!clearBtn.disabled && window.confirm("Are you sure you want to clear?")) {
 		board.innerHTML = "";
 		init();
 	}
@@ -30,7 +31,11 @@ function clearSolution() {
 		solutionCells[0].value = "";
 		solutionCells[0].className = "cell";
 	}
-	document.getElementById("clear-solution").style["display"] = "none";
+
+	clearBtn.removeEventListener("click", clearSolution);
+	clearBtn.addEventListener("click", clear);
+
+	clearBtn.innerHTML = "Clear";
 }
 
 function initBoardData() {
@@ -58,6 +63,7 @@ function createCell(row, col) {
 	var cell = document.createElement("input");
 	cell.className = "cell";
 	cell.type = "text";
+	cell.autocomplete = "off";
 	cell.id = row.toString() + col.toString();
 	cell.addEventListener("keyup", function(e) {
 		if (parseInt(cell.value) > 0 && parseInt(cell.value) < 10) {
@@ -86,11 +92,28 @@ function blockCharacters(e) {
 }
 
 function updateBoardData(row, col, data) {
+	if (data) {
+		countNums++;
+	} else {
+		countNums--;
+	}
 	boardData[row][col] = data;
+	boardDataChanged();
+}
+
+function boardDataChanged() {
+	if (countNums > 0) {
+		clearBtn.disabled = false;
+	} else {
+		clearBtn.disabled = true;
+	}
 }
 
 function validate(e) {
-	var totalValues = 0;
+	if (countNums < 15) {
+		window.alert("Please enter at least 15 values to start");
+		return;
+	}
 
 	for (var i = 0; i < 9; i++) {
 		for (var j = 0; j < 9; j++) {
@@ -98,17 +121,10 @@ function validate(e) {
 				window.alert("Invalid value on board");
 				return;
 			}
-			if (boardData[i][j]) {
-				totalValues++;
-			}
 		}
 	}
 
-	if (totalValues < 10) {
-		window.alert("Please enter at least 10 values to start");
-	} else {
-		submit()
-	}
+	submit()
 }
 
 function submit() {
@@ -148,8 +164,10 @@ function drawSolvedBoard(board) {
 			}
 		}
 	}
-	document.getElementById("clear-solution").addEventListener("click", clearSolution);
-	document.getElementById("clear-solution").style["display"] = "inline";
+	clearBtn.removeEventListener("click", clear);
+	clearBtn.addEventListener("click", clearSolution);
+
+	clearBtn.innerHTML = "Clear Solution";
 }
 
 function showProcessing() {

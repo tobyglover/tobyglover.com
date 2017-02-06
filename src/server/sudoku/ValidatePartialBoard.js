@@ -1,4 +1,4 @@
-module.exports.check = function (partialBoard) {
+function check(partialBoard) {
 	var i = 0;
 	var validBoard = true;
 
@@ -23,7 +23,7 @@ function fitsConstraints(board, row, col) {
 
 function fitsRow(board, row, col) {
 	for (var i = 0; i < 9; i++) {
-		if (col != i && board[row][i] == board[row][col]) {
+		if (col != i && board[row][i] === board[row][col]) {
 			return false;
 		}
 	}
@@ -33,7 +33,7 @@ function fitsRow(board, row, col) {
 
 function fitsCol(board, row, col) {
 	for (var i = 0; i < 9; i++) {
-		if (row != i && board[i][col] == board[row][col]) {
+		if (row != i && board[i][col] === board[row][col]) {
 			return false;
 		}
 	}
@@ -49,7 +49,7 @@ function fitsSection(board, row, col) {
 		for (var j = 0; j < 3; j++) {
 			var checkRow = sectionRow * 3 + i;
 			var checkCol = sectionCol * 3 + j;
-			if ((checkRow != row || checkCol != col) && board[checkRow][checkCol] == board[row][col]) {
+			if ((checkRow != row || checkCol != col) && board[checkRow][checkCol] === board[row][col]) {
 				return false;
 			}
 		}
@@ -57,3 +57,6 @@ function fitsSection(board, row, col) {
 
 	return true;
 }
+
+module.exports.check = check;
+module.exports.fitsConstraints = fitsConstraints;

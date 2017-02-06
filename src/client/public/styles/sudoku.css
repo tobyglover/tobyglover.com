@@ -24,12 +24,17 @@ button:hover {
 	background-color: #61bc5c;
 }
 
-#clear, #clear-solution {
+#clear {
 	background-color: #f96868;
 }
 
-#clear:hover, #clear-solution:hover {
+#clear:hover {
 	background-color: #ff8989;
+}
+
+#clear:disabled {
+	cursor: default;
+	background-color: #f7c8c8;
 }
 
 #loading {

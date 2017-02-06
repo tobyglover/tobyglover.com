@@ -10,14 +10,23 @@ router.post('/secretsanta', function(request, response) {
 });
 
 router.post('/sudoku', function(request, response) {
+	var Sudoku = require("../sudoku/");
+	var Board = require("../sudoku/Board");
+	var Verify = require("../sudoku/ValidatePartialBoard");
+
 	response.setHeader('Content-Type', 'application/json');
 
-	var returnValue = require("../sudoku").solve(request.body);
+	if (Verify.check(request.body)) {
+		var board = new Board(request.body);
+		var solvedBoard = Sudoku.solve(board);
 
-	if (returnValue.board) {
-		response.status(200).send({board: returnValue.board});
+		if (solvedBoard != null) {
+			response.status(200).send({board: solvedBoard.toArray()});
+		} else {
+			response.status(406).send({reason: "No Solutions to board exist"});
+		}
 	} else {
-		response.status(406).send({reason: returnValue.reason});
+		response.status(406).send({reason: "Invalid board"});
 	}
 });
 
