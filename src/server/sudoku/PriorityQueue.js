@@ -27,6 +27,8 @@ class PriorityQueue {
 			n.next = tmp;
 			if (prev) {
 				prev.next = n;
+			} else {
+				this.queue = n;
 			}
 		}
 	}

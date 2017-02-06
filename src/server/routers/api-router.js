@@ -10,21 +10,33 @@ router.post('/secretsanta', function(request, response) {
 });
 
 router.post('/sudoku', function(request, response) {
-	var Sudoku = require("../sudoku/");
-	var Board = require("../sudoku/Board");
 	var Verify = require("../sudoku/ValidatePartialBoard");
+	var spawn = require('threads').spawn;
+	var timeoutSeconds = 20;
 
 	response.setHeader('Content-Type', 'application/json');
 
 	if (Verify.check(request.body)) {
-		var board = new Board(request.body);
-		var solvedBoard = Sudoku.solve(board);
+		const thread = spawn(__dirname + '/../sudoku/index.js');
 
-		if (solvedBoard != null) {
-			response.status(200).send({board: solvedBoard.toArray()});
-		} else {
-			response.status(406).send({reason: "No Solutions to board exist"});
-		}
+		var timeout = setTimeout(function(t) {
+			thread.kill();
+			clearTimeout(t);
+			response.status(406).send({reason: "Calculation took too long to run (sorry, I can't afford exponential calculations)"});
+		}, timeoutSeconds * 1000);
+
+		thread.send({'board' : request.body}).on('message', function(message) {
+			clearTimeout(timeout);
+
+    		if (message.board != null) {
+				response.status(200).send({board: message.board});
+			} else {
+				response.status(406).send({reason: "No Solutions to board exist"});
+			}
+
+   			thread.kill();
+  		});
+		
 	} else {
 		response.status(406).send({reason: "Invalid board"});
 	}

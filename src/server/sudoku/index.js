@@ -20,19 +20,35 @@ Set.prototype.isSuperset = function(subset) {
     return true;
 }
 
- function solve(board) {
+function init(input, d) {
+	var done = false;
+	var board = new Board(input.board);
+	board = solve(board);
+
+	if (board) {
+		d({'board' : board.toArray()});
+	} else {
+		d({'board' : null});
+	}
+}
+
+function solve(board) {
 	var done = false;
 
 	initBoard(board);
 	done = isSolved(board);
 
 	if (!done) {
-		done = buildPremptiveSets(board);
+		done = buildPreemptiveSets(board);
 	}
 
 	// If CSP and pre-emptive sets do not solve, recurse to solution
+
+	// console.log(board.toArray());
+	// console.log();
 	if (!done) {
-		done = search(board);
+		board = search(board);
+		done = board != null && isSolved(board);
 	}
 
 	if (done) {
@@ -40,6 +56,7 @@ Set.prototype.isSuperset = function(subset) {
 	} else {
 		return null;
 	}
+
 }
 
 function initBoard(board) {
@@ -56,7 +73,7 @@ function initBoard(board) {
 	}
 }
 
-function buildPremptiveSets(board) {
+function buildPreemptiveSets(board) {
 	var done = false;
 	for (var i = 8; i > 0; i--) {
 		done = analyze(board, i);
@@ -124,9 +141,8 @@ function search(board) {
 				var copy = board.copy();
 				var solvedBoard = solve(copy);
 
-				if (solvedBoard != null && isSolved(solvedBoard)) {
-					board = solvedBoard;
-					return true;
+				if (solvedBoard != null) {
+					return solvedBoard;
 				}
 			}
 		}
@@ -135,7 +151,7 @@ function search(board) {
 		data = openDomains.pop();
 	}
 
-	return false;
+	return null;
 }
 
 function applyConstraints(board, row, col) {
@@ -159,19 +175,23 @@ function applyConstraints(board, row, col) {
 }
 
 function isSolved(board) {
-	var done = true;
+	var solved = true;
 
 	board.map(function(r, c, val) {
 		if (isSet(val)) {
-			done = false;
+			solved = false;
 		}
 	});
 
-	return done;
+	if (solved) {
+		solved = verify.check(board.toArray());
+	}
+
+	return solved;
 }
 
 function isSet(val) {
 	return typeof val == "object";
 }
 
-module.exports.solve = solve;
+module.exports = init;
