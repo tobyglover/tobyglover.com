@@ -43,9 +43,6 @@ function solve(board) {
 	}
 
 	// If CSP and pre-emptive sets do not solve, recurse to solution
-
-	// console.log(board.toArray());
-	// console.log();
 	if (!done) {
 		board = search(board);
 		done = board != null && isSolved(board);

@@ -65,36 +65,33 @@ function createCell(row, col) {
 	cell.type = "text";
 	cell.autocomplete = "off";
 	cell.id = row.toString() + col.toString();
-	cell.addEventListener("keyup", function(e) {
-		if (parseInt(cell.value) > 0 && parseInt(cell.value) < 10) {
-			updateBoardData(row, col, parseInt(cell.value));
-		} else if (cell.value == "") {
-			updateBoardData(row, col, null);
-		} else {
-			cell.value = cell.value.charAt(0);
-		}
+	cell.addEventListener("keydown", function(e) {
+		blockCharacters(e, cell, row, col);
 	});
-	cell.addEventListener("keydown", blockCharacters);
+	cell.addEventListener("keyup", function(e) {
+		updateBoardData(row, col, parseInt(cell.value));
+	});
 	return cell;
 }
 
-function blockCharacters(e) {
+function blockCharacters(e, cell, row, col) {
 	// Allow: backspace, delete, home, end, left, right
 	var k = e.keyCode;
-    if (k == 8 || k == 46 || (k >= 35 && e.keyCode <= 39)) {
+
+    if (k == 8 || k == 46) {
         return;
     }
     // Ensure that it is a number and stop the keypress
-    if ((e.shiftKey || (e.keyCode < 49 || e.keyCode > 57)) && (e.keyCode < 97 || e.keyCode > 105)) {
+    if (cell.value != "" || ((e.shiftKey || (e.keyCode < 49 || e.keyCode > 57)) && (e.keyCode < 97 || e.keyCode > 105))) {
         e.preventDefault();
     }
-
 }
 
 function updateBoardData(row, col, data) {
 	if (data) {
 		countNums++;
 	} else {
+		data = null;
 		countNums--;
 	}
 	boardData[row][col] = data;
