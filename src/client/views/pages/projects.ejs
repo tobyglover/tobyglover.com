@@ -1,4 +1,8 @@
-<%- include ../partials/header-navbar.ejs %>
+<%- include('../partials/header-navbar.ejs', {
+	title: "Projects",
+	metaDescription: "Personal projects by Toby Glover, Computer Science major in Tufts University's School of Engineering",
+	metaKeywords: "projects"
+}) %>
 
 <div class="main-content">
 	<section class="project-section">
@@ -17,11 +21,11 @@
 		<h3>Small Projects/Experiments</h3>
 		<a class="project" href="projects/sudoku">
 			<p class="link">Sudoku Solver</p>
-			<p>Solves Sudoku puzzles using a combination of constraint satisfaction problems (CSP), pre-emptive sets, and other AI techniques</p>
+			<p>Solves Sudoku puzzles using a combination of constraint satisfaction problems, pre-emptive sets, and other AI techniques</p>
 		</a>
 		<a class="project" href="projects/secretsanta">
 			<p class="link">Secret Santa</p>
-			<p>Simple service that emails a group of users their secret santa assignments</p>
+			<p>Simple service that emails a group of users each of their secret santa assignments</p>
 		</a>
 	</section>
 

@@ -9,34 +9,25 @@ router.get('/', function(request, response) {
 
 router.get('/resume', function(request, response) {
 	response.render('pages/resume', {
-		title: "Resume",
 		navLinks: getNavLinks('Resume'),
-		extensions: ['<link rel="stylesheet" href="/styles/resume.css" type="text/css">']
 	});
 });
 
 router.get('/projects', function(request, response) {
 	response.render('pages/projects', {
-		title: "Projects",
 		navLinks: getNavLinks('Projects')
 	});
 });
 
 router.get('/projects/sudoku', function(request, response) {
 	response.render('pages/sudoku', {
-		title: "Sudoku Solver",
 		navLinks: getNavLinks(),
-		extensions: ['<link rel="stylesheet" href="/styles/sudoku.css" type="text/css">',
-					 '<script type="text/javascript" src="/scripts/sudoku.js"></script>']
 	});
 });
 
 router.get('/projects/secretsanta', function(request, response) {
 	response.render('pages/secretsanta', {
-		title: "Secret Santa",
 		navLinks: getNavLinks(),
-		extensions: ['<link rel="stylesheet" href="/styles/secretsanta.css" type="text/css">',
-					 '<script type="text/javascript" src="/scripts/secretsanta.js"></script>']
 	});
 });
 
