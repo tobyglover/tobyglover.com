@@ -10,6 +10,16 @@
 	<meta name="description" content="<%- metaDescription %>">
     <link rel="stylesheet" href="/styles/main.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300|Open+Sans" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="/images/favicon/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="/images/favicon/manifest.json">
+	<link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#56bad6">
+	<link rel="shortcut icon" href="/images/favicon/favicon.ico">
+	<meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+	<!-- end favicons -->
     <% if (typeof extensions !== 'undefined') { for (var i = 0; i < extensions.length; i++) { %><%- extensions[i] %><% } } %>
 </head>
 <body>
