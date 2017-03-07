@@ -21,13 +21,19 @@ router.get('/projects', function(request, response) {
 
 router.get('/projects/sudoku', function(request, response) {
 	response.render('pages/sudoku', {
-		navLinks: getNavLinks(),
+		navLinks: getNavLinks()
 	});
 });
 
 router.get('/projects/secretsanta', function(request, response) {
 	response.render('pages/secretsanta', {
-		navLinks: getNavLinks(),
+		navLinks: getNavLinks()
+	});
+});
+
+router.get('/pagenotfound', function(request, response) {
+	response.render('pages/pagenotfound', {
+		navLinks: getNavLinks()
 	});
 });
 

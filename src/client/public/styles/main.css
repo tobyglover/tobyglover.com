@@ -169,6 +169,11 @@ a, a:visited {
     font-size: 18px;
 }
 
+#PageNotFound {
+    margin-top: 10em;
+    text-align: center;
+}
+
 .home {
     text-align: center;
     margin-top: 7em;

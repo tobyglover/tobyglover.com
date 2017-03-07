@@ -16,7 +16,7 @@ app.listen(app.get('port'), function() {
 
 app.use(express.static(__dirname + '/src/client/public'));
 
-app.get("*", function(request, response, next) {
+app.use(function(request, response, next) {
 	global.test = false;
 	if (request.hostname == 'localhost') {
         global.test = true;
@@ -33,3 +33,6 @@ app.get("*", function(request, response, next) {
 
 app.use('/api', apiRouter);
 app.use('/',    pageRouter);
+app.use(function(request, response) {
+	response.redirect("/pagenotfound");
+});
