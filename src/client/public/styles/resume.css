@@ -8,6 +8,7 @@ li {
 
 h3 {
 	border-bottom: 1px solid black;
+  margin-bottom: .5em;
 }
 
 .title { 
@@ -47,6 +48,14 @@ h3 {
     width: 7em;
     font-weight: bold;
     vertical-align: text-top;
+}
+
+.subsection {
+  margin-bottom: 1.2em;
+}
+
+.section-list:last-child {
+  margin-bottom: 0;
 }
 
 @media screen and (max-width: 590px) {
