@@ -139,6 +139,15 @@ a, a:visited {
     font-size: 18px;
 }
 
+.paragraphs > * {
+    margin-top: 10px;
+}
+
+.paragraphs > p:first-child{
+    margin-top: 0;
+    background-color: 'red'
+}
+
 #navbar-wrapper {
    border-bottom: 1px solid lightgray; 
    width: 100%;
