@@ -1,0 +1,149 @@
+@import "base";
+@import "colors";
+
+$contact-button-diameter: 50px;
+
+#contact {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  &.contract {
+    .item-container {
+      margin-top: -20px;
+    }
+  }
+  &.fixed {
+    position: fixed;
+    left: 0;
+  }
+
+  .item-container {
+    overflow: hidden;
+    height: $contact-button-diameter;
+    border-radius: $contact-button-diameter;
+    margin-bottom: 3px;
+    padding-right: 3px;
+    position: relative;
+    transition: margin-top .25s;
+
+    &#twitter {
+      color: $twitter-color;
+      z-index: 5;
+      a {
+        img {
+          background-color: $twitter-color;
+        }
+        span {
+          color: $twitter-color;
+          border-color: $twitter-color;
+          background-color: $twitter-background-color;
+        }
+      }
+    }
+
+    &#instagram {
+      color: $instagram-color;
+      z-index: 4;
+      a {
+        img {
+          background-color: $instagram-color;
+        }
+        span {
+          color: $instagram-color;
+          border-color: $instagram-color;
+          background-color: $instagram-background-color;
+        }
+      }
+    }
+
+    &#linkedin {
+      color: $linkedin-color;
+      z-index: 3;
+      a {
+        img {
+          background-color: $linkedin-color;
+        }
+        span {
+          color: $linkedin-color;
+          border-color: $linkedin-color;
+          background-color: $linkedin-background-color;
+        }
+      }
+    }
+
+    &#github {
+      color: $github-color;
+      z-index: 2;
+      a {
+        img {
+          background-color: $github-color;
+        }
+        span {
+          color: $github-color;
+          border-color: $github-color;
+          background-color: $github-background-color;
+        }
+      }
+    }
+
+    &#email {
+      color: $email-color;
+      z-index: 1;
+      a {
+        img {
+          background-color: $email-color;
+        }
+        span {
+          color: $email-color;
+          border-color: $email-color;
+          background-color: $email-background-color;
+        }
+      }
+    }
+  }
+  a {
+    height: $contact-button-diameter;
+    display: inline-flex;
+    align-items: center;
+    &:hover span {
+      left: 0;
+    }
+    img {
+      height: 100%;
+      border-radius: 50%;
+      z-index: 2;
+    }
+    span {
+      box-sizing: border-box;
+      position: relative;
+      left: -100%;
+      transition: left .35s;
+      height: $contact-button-diameter;
+      margin-left: -$contact-button-diameter;
+      padding: 12px 10px 0 $contact-button-diameter + 3px;
+      border-width: 2px;
+      border-style: solid;
+      border-radius: $contact-button-diameter / 2;
+      font-weight: 400;
+    }
+  }
+}
+
+@media screen and (max-width: 1120px) {
+  #contact {
+    position: relative;
+    top: 0;
+    left: 0;
+    .container {
+      text-align: center;
+      margin: 30px auto;
+      max-width: 500px;
+    }
+    .item-container {
+      display: inline-block;
+    }
+    a span {
+      left: 0;
+    }
+  }
+}

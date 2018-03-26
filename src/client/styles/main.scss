@@ -1,0 +1,27 @@
+@import "base";
+@import "colors";
+
+$main-content-max-width: 600px;
+
+header {
+  background-image: url("/images/headshot.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 50vh;
+  opacity: 0.75;
+  div {
+    position: absolute;
+    bottom: 10;
+    background-color: red;
+  }
+}
+
+#main-content {
+  position: relative;
+  width: 96%;
+  max-width: $main-content-max-width;
+  margin: 1em auto 0 auto;
+  padding: 0 20px;
+  animation: fadeInUp 1s;
+}
