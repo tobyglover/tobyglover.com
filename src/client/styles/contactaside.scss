@@ -45,7 +45,7 @@ $contact-button-diameter: 50px;
       z-index: 4;
       a {
         img {
-          background-color: $instagram-color;
+          background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
         }
         span {
           color: $instagram-color;
