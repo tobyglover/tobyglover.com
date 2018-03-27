@@ -7,7 +7,7 @@ $contact-button-diameter: 50px;
   top: 0;
   left: 100%;
   &.contract {
-    .item-container {
+    .item-container:not(:first-child) {
       margin-top: -20px;
     }
   }
