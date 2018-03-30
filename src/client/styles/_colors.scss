@@ -1,4 +1,7 @@
-$body-background-color: #FAF0E6;
+$font-color: #262626;
+$body-background-color: #FFFAF5;
+$accent-green: #2D7254;
+$link-color: #00185E;
 
 
 /* START SOCIAL CONTACT COLORS */
@@ -14,6 +17,6 @@ $linkedin-background-color: #9BDAF3;
 $github-color: #333;
 $github-background-color: #999;
 
-$email-color: #2D7254;
+$email-color: $accent-green;
 $email-background-color: #8CBFA9
 /* END SOCIAL CONTACT COLORS */

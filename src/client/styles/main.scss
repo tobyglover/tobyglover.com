@@ -1,7 +1,5 @@
 @import "base";
 
-$main-content-max-width: 600px;
-
 header {
   background-image: url("/images/headshot.jpg");
   background-repeat: no-repeat;
@@ -16,11 +14,47 @@ header {
   }
 }
 
-#main-content {
+#container {
   position: relative;
-  width: 96%;
-  max-width: $main-content-max-width;
-  margin: 1em auto 0 auto;
-  padding: 0 20px;
+  margin: 30px $contact-aside-width 0 10px;
   animation: fadeInUp 1s;
+  #main-content {
+    position: relative;
+    padding: 0 10px;
+    max-width: 1000px;
+    margin: 0 auto;
+    section {
+      padding: 0 0 125px 100px;
+      display: flex;
+      .title {
+        flex: 1;
+        padding: 0 60px 5px 0;
+        color: $accent-green;
+        text-align: right;
+      }
+      .content {
+        flex: 5;
+        &.skills {
+          width: 80%;
+          margin: 0 auto;
+          h3 {
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $contact-aside-max-width) {
+  #container {
+    margin: 30px auto 0 auto;
+    #main-content section {
+      display: block;
+      padding-left: 0;
+      .title {
+        text-align: left;
+      }
+    }
+  }
 }

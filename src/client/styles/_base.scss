@@ -1,11 +1,13 @@
 @import "colors";
+@import "variables";
 
 * {
   padding: 0;
   margin: 0;
   font-family: 'Lato', 'Open Sans', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 300;
+  color: $font-color;
 }
 
 html {
@@ -24,33 +26,48 @@ h1 {
 }
 
 h2 {
-  font-size:1.75em;
-  margin: 0;
-  font-weight: 400;
+  text-transform: uppercase;
 }
 
-h3 {
-  font-size: 1.25em;
-  margin-top: .3em;
-  font-weight: 400;
-}
-
-h4 {
-  font-weight: 400;
-  display: inline;
-}
-
-nav {
-  margin: .7em;
-}
+// h3 {
+//   font-size: 1.25em;
+// }
+//
+// h4 {
+//   display: inline;
+// }
 
 b {
   font-weight: 400;
 }
 
 a, a:visited {
+  position: relative;
   text-decoration: none;
-  color: black;
+  color: $link-color;
+  &.underline {
+    &:after {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 0.5px;
+      background: $link-color;
+      border-radius: 1px;
+      content: "";
+      transition: all .3s ease-in-out;
+    }
+    &:hover:after {
+      transform: translateY(2px);
+      height: 3px;
+    }
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 
