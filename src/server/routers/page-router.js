@@ -13,6 +13,10 @@ router.get('/projects/secretsanta', function(request, response) {
 	response.render('pages/secretsanta');
 });
 
+router.get('/resume', function(request, response) {
+	response.render('pages/resume');
+});
+
 router.get('/pagenotfound', function(request, response) {
 	response.render('pages/pagenotfound');
 });

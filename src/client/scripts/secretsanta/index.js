@@ -1,4 +1,4 @@
-import '../../styles/pages/index.scss';
+import '../../styles/pages/secretsanta.scss';
 import {ContactAside} from '../shared';
 import $ from 'jquery';
 

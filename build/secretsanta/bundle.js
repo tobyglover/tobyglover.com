@@ -66,7 +66,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/client/scripts/index/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/client/scripts/secretsanta/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -82,15 +82,15 @@ eval("var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!\n * jQ
 
 /***/ }),
 
-/***/ "./src/client/scripts/index/index.js":
-/*!*******************************************!*\
-  !*** ./src/client/scripts/index/index.js ***!
-  \*******************************************/
+/***/ "./src/client/scripts/secretsanta/index.js":
+/*!*************************************************!*\
+  !*** ./src/client/scripts/secretsanta/index.js ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\n__webpack_require__(/*! ../../styles/pages/index.scss */ \"./src/client/styles/pages/index.scss\");\n\nvar _shared = __webpack_require__(/*! ../shared */ \"./src/client/scripts/shared/index.js\");\n\nvar _jquery = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n\nvar _jquery2 = _interopRequireDefault(_jquery);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n(0, _jquery2.default)(document).ready(function () {\n  _shared.ContactAside.init();\n});\n\n//# sourceURL=webpack:///./src/client/scripts/index/index.js?");
+eval("\n\n__webpack_require__(/*! ../../styles/pages/secretsanta.scss */ \"./src/client/styles/pages/secretsanta.scss\");\n\nvar _shared = __webpack_require__(/*! ../shared */ \"./src/client/scripts/shared/index.js\");\n\nvar _jquery = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n\nvar _jquery2 = _interopRequireDefault(_jquery);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n(0, _jquery2.default)(document).ready(function () {\n  _shared.ContactAside.init();\n});\n\n//# sourceURL=webpack:///./src/client/scripts/secretsanta/index.js?");
 
 /***/ }),
 
@@ -118,14 +118,14 @@ eval("\n\nmodule.exports = {\n  ContactAside: __webpack_require__(/*! ./ContactA
 
 /***/ }),
 
-/***/ "./src/client/styles/pages/index.scss":
-/*!********************************************!*\
-  !*** ./src/client/styles/pages/index.scss ***!
-  \********************************************/
+/***/ "./src/client/styles/pages/secretsanta.scss":
+/*!**************************************************!*\
+  !*** ./src/client/styles/pages/secretsanta.scss ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/client/styles/pages/index.scss?");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/client/styles/pages/secretsanta.scss?");
 
 /***/ })
 
