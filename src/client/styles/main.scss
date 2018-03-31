@@ -14,47 +14,73 @@ header {
   }
 }
 
+$section-padding-bottom: 125px;
+$section-padding-right: 100px;
+
 #container {
   position: relative;
   margin: 30px $contact-aside-width 0 10px;
   animation: fadeInUp 1s;
-  #main-content {
-    position: relative;
-    padding: 0 10px;
-    max-width: 1000px;
-    margin: 0 auto;
-    section {
-      padding: 0 0 125px 100px;
-      display: flex;
-      .title {
-        flex: 1;
-        padding: 0 60px 5px 0;
-        color: $accent-green;
-        text-align: right;
-      }
-      .content {
-        flex: 5;
-        &.skills {
-          width: 80%;
-          margin: 0 auto;
-          h3 {
-            font-weight: 400;
-          }
+}
+
+#main-content {
+  position: relative;
+  padding: 0 10px;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  section {
+    padding: 0 $section-padding-right $section-padding-bottom 0;
+    display: flex;
+    .title {
+      flex: 1;
+      padding: 0 60px 5px 0;
+      color: $accent-green;
+      text-align: right;
+    }
+    .content {
+      flex: 5;
+      &.skills {
+        width: 80%;
+        margin: 0 auto;
+        h3 {
+          font-weight: 400;
         }
       }
     }
   }
 }
 
+#resume-section {
+  text-align: right;
+  padding: 0 $section-padding-right $section-padding-bottom 0;
+}
+
+#resume-link {
+  &:after {
+    transition: all .2s ease-in-out;
+  }
+  &:hover {
+    transition: color .2s ease-in-out .15s;
+    color: white;
+    &:after {
+      height: 100%;
+      top: 0;
+    }
+  }
+}
+
+
 @media screen and (max-width: $contact-aside-max-width) {
   #container {
     margin: 30px auto 0 auto;
-    #main-content section {
-      display: block;
-      padding-left: 0;
-      .title {
-        text-align: left;
-      }
+  }
+  #main-content section {
+    display: block;
+    padding-left: 0;
+    padding-right: 0;
+    .title {
+      text-align: left;
     }
   }
 }
