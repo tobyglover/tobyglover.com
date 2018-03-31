@@ -141,6 +141,38 @@ $contact-button-top-padding-s: 4px;
   }
 }
 
+@mixin addMediaQueriesForContactAside($parentId) {
+  @media screen and (max-width: 1425px) {
+    #{$parentId} {
+      padding-right: 50px;
+      margin-left: $contact-aside-width;
+      margin-right: $contact-aside-width;
+    }
+  }
+
+  @media screen and (max-width: 1250px) {
+    #{$parentId} {
+      margin-left: 100px;
+    }
+  }
+
+  @media screen and (max-width: $contact-aside-transition-small-width) {
+    #{$parentId} {
+      padding-right: 10px;
+      margin-right: $contact-aside-width-s;
+      margin-left: 10px;
+    }
+  }
+
+  @media screen and (max-width: $contact-aside-transition-bottom-width) {
+    #{$parentId} {
+      padding: 0 10px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
 @media screen and (max-width: $contact-aside-transition-small-width) {
   #contact {
     @include fromDiameter($contact-button-diameter-s, $contact-button-top-padding-s);

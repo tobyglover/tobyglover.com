@@ -1,4 +1,3 @@
-import '../../styles/contactaside.scss';
 import $ from 'jquery';
 
 const MEDIA_SCREEN_MAX_WIDTH = 800;

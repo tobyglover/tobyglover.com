@@ -1,4 +1,5 @@
 @import "base";
+@import "contactaside";
 
 header {
   background-image: url("/images/headshot.jpg");
@@ -81,36 +82,13 @@ $main-content-top-margin: 30px;
   }
 }
 
-@media screen and (max-width: 1425px) {
-  #main-content {
-    padding-right: 50px;
-    margin: $main-content-top-margin $contact-aside-width 0;
-  }
-}
-
-@media screen and (max-width: 1250px) {
-  #main-content {
-    margin-left: 100px;
-  }
-}
-
-@media screen and (max-width: $contact-aside-transition-small-width) {
-  #main-content {
-    padding-right: 10px;
-    margin: $main-content-top-margin $contact-aside-width-s 0 10px;
-  }
-}
-
+@include addMediaQueriesForContactAside(#main-content)
 
 @media screen and (max-width: $contact-aside-transition-bottom-width) {
-  #main-content {
-    padding: 0 10px;
-    margin: $main-content-top-margin auto 0;
-    .content-section {
-      display: block;
-      .title {
-        text-align: left;
-      }
+  #main-content .content-section {
+    display: block;
+    .title {
+      text-align: left;
     }
   }
 }
