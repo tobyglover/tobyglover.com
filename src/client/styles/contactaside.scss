@@ -2,6 +2,25 @@
 @import "variables";
 
 $contact-button-diameter: 50px;
+$contact-button-top-padding: 12px;
+$contact-button-diameter-s: 30px;
+$contact-button-top-padding-s: 4px;
+
+@mixin fromDiameter($diameter, $top-padding) {
+  .item-container {
+    height: $diameter;
+    border-radius: $diameter;
+  }
+  a {
+    height: $diameter;
+    span {
+      height: $diameter;
+      margin-left: -$diameter;
+      padding: $top-padding 10px 0 $diameter + 3px;
+      border-radius: $diameter / 2;
+    }
+  }
+}
 
 #contact {
   position: absolute;
@@ -16,11 +35,9 @@ $contact-button-diameter: 50px;
     position: fixed;
     left: 0;
   }
-
+  @include fromDiameter($contact-button-diameter, $contact-button-top-padding);
   .item-container {
     overflow: hidden;
-    height: $contact-button-diameter;
-    border-radius: $contact-button-diameter;
     margin-bottom: 3px;
     padding-right: 3px;
     position: relative;
@@ -102,7 +119,6 @@ $contact-button-diameter: 50px;
     }
   }
   a {
-    height: $contact-button-diameter;
     display: inline-flex;
     align-items: center;
     &:hover span {
@@ -118,18 +134,23 @@ $contact-button-diameter: 50px;
       position: relative;
       left: -100%;
       transition: left .35s;
-      height: $contact-button-diameter;
-      margin-left: -$contact-button-diameter;
-      padding: 12px 10px 0 $contact-button-diameter + 3px;
       border-width: 2px;
       border-style: solid;
-      border-radius: $contact-button-diameter / 2;
       font-weight: 400;
     }
   }
 }
 
-@media screen and (max-width: $contact-aside-max-width) {
+@media screen and (max-width: $contact-aside-transition-small-width) {
+  #contact {
+    @include fromDiameter($contact-button-diameter-s, $contact-button-top-padding-s);
+    span {
+      font-size: .75em;
+    }
+  }
+}
+
+@media screen and (max-width: $contact-aside-transition-bottom-width) {
   #contact {
     position: relative;
     top: 0;

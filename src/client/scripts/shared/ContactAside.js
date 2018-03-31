@@ -1,7 +1,7 @@
 import '../../styles/contactaside.scss';
 import $ from 'jquery';
 
-const MEDIA_SCREEN_MAX_WIDTH = 1120;
+const MEDIA_SCREEN_MAX_WIDTH = 800;
 const CONTACT_TOP_MARGIN = 200;
 const DISTANCE_MIN_CONTRACT = 200;
 let contact, container, contactInitialOffset, imgWidth = null;
