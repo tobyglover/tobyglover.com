@@ -49,6 +49,10 @@ a, a:visited {
   margin: 30px auto 0;
 }
 
+#back-to-home {
+  margin: 20px;
+}
+
 .underline {
   position: relative;
   z-index: 10;
@@ -93,6 +97,27 @@ a, a:visited {
     transition: background-position .2s ease-in-out;
   }
   &:hover:after {
+    background-position: 6px 1px;
+  }
+}
+
+.left-arrow-before {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  &:before {
+    height: 14px;
+    width: 35px;
+    content: "";
+    background-image: url("/images/right-arrow.png");
+    background-repeat: no-repeat;
+    background-position: 3px 1px;
+    background-size: contain;
+    transform: rotate(180deg);
+    transition: background-position .2s ease-in-out;
+  }
+  &:hover:before {
     background-position: 6px 1px;
   }
 }
