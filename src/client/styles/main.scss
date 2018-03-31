@@ -14,13 +14,14 @@ header {
   }
 }
 
-$section-padding-bottom: 125px;
+$section-padding-bottom: 200px;
 $section-padding-right: 100px;
+$section-padding-right-min: 25px;
 
 #container {
   position: relative;
   margin: 30px $contact-aside-width 0 10px;
-  animation: fadeInUp 1s;
+  // animation: fadeInUp 1s;
 }
 
 #main-content {
@@ -28,9 +29,7 @@ $section-padding-right: 100px;
   padding: 0 10px;
   max-width: 1000px;
   margin: 0 auto;
-
-  section {
-    padding: 0 $section-padding-right $section-padding-bottom 0;
+  .content-section {
     display: flex;
     .title {
       flex: 1;
@@ -43,20 +42,30 @@ $section-padding-right: 100px;
       &.skills {
         width: 80%;
         margin: 0 auto;
-        h3 {
-          font-weight: 400;
+        p {
+          margin: 0;
         }
       }
     }
   }
 }
 
-#resume-section {
-  text-align: right;
+.project:not(:last-child) {
+  margin-bottom: 50px;
+}
+
+#main-content section {
   padding: 0 $section-padding-right $section-padding-bottom 0;
 }
 
+#resume-section {
+  text-align: right;
+  margin-right: 100px;
+}
+
 #resume-link {
+  width: 110%;
+  text-align: center;
   &:after {
     transition: all .2s ease-in-out;
   }
@@ -70,12 +79,18 @@ $section-padding-right: 100px;
   }
 }
 
+@media screen and (max-width: 1350px) {
+  #main-content section {
+    padding-right: $section-padding-right-min;
+  }
+}
+
 
 @media screen and (max-width: $contact-aside-max-width) {
   #container {
     margin: 30px auto 0 auto;
   }
-  #main-content section {
+  #main-content .content-section {
     display: block;
     padding-left: 0;
     padding-right: 0;
