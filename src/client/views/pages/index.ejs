@@ -1,16 +1,303 @@
 <%- include('../partials/header', {
+  page: "index",
 	metaDescription: "Personal site for Toby Glover, student at Tufts University's School of Engineering"
 }) %>
 
-<div class="main-content home">
+<header>
+  Product Focused Front-End Engineer - somthing about creativity.
+</header>
 
-<img src="images/headshot.jpg" id="headshot" alt="profile picture">
+<div id="container">
+  <div id="main-content">
+    <section class="content-section">
+      <h2 class="title">About Me</h2>
+      <div class="content">
+        <p>I focus on developing products in terms the rest of the world can understand. Whether it's on web or mobile, the satisfaction of creating unobtrusive interfaces to advanced systems is palpable. It is this act of creation that pushes me to keep working hard to develop my skills in this field.</p>
 
-<h1>Toby Glover</h1>
-<p id="homepage-description">My name is Toby Glover. I'm a Junior in the School of Engineering at Tufts University majoring in <b>Computer Science</b> and minoring in Entreprenuership and Leadership Studies. Most recently I worked at <b>Facebook</b> as a Software Engineering Intern on the Lead Ads Product team, improving their <b>Android and Web</b> products. Previously, I worked at <a class="link" target="_blank" rel="noopener noreferrer" href="https://switch.tv">Switch Media</a> in Sydney, Australia as a Support Engineer and Server Side Developer. I continue to work on web systems, specializing in building web APIs although I also work with React extensively. Some of my personal projects, along with my resume, can be found below.</p>
+        <p>I started my career at 18 when I worked for <a class="underline" target="_blank" rel="noopener noreferrer" href="https://switch.tv">Switch Media</a> in Sydney, Australia, where I had many roles including Support Engineer, DevOps, and Web Developer. This combination exposed me to all parts of the web stack and showed me the process of developing product features with the customer in mind.</p>
 
-<%- include ../partials/nav %>
+        <p>I am now a Junior at Tufts University studying Computer Science with a minor in Entrepreneurial Leadership Studies. Most recently I interned with the Lead Ads Product team at <b>Facebook</b>. While there, I defined a new architecture to allow for further extensibility in their Android codebase and introduced new product features across their entire platform including web, Android, and iOS.</p>
 
+        <p>When I'm not working on mobile and web applications, I like to spend my time being active outside. You can usually find me running, hiking, or playing ultimate frisbee. I also enjoy other creative outlets including photography.</p>
+
+        <div id="resume-link">
+          <a target="_blank" href="resume.pdf" class="right-arrow-after">
+            <span id="resume-prompt" class="underline">See My Resume</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2 class="title">Skills</h2>
+      <div id="skills" class="content row">
+        <span>
+          <h3>Languages</h3>
+          <p>JavaScript</p>
+          <p>HTML</p>
+          <p>CSS/SASS</p>
+          <p>Java</p>
+          <p>Python</p>
+          <p>C/C++</p>
+          <p>PHP</p>
+        </span>
+        <span class="col">
+          <h3>Frameworks</h3>
+          <p>React</p>
+          <p>React Native</p>
+          <p>Redux</p>
+          <p>Node</p>
+          <p>Express</p>
+          <p>Postgres</p>
+          <p>MongoDb</p>
+        </span>
+        <span class="col">
+          <h3>Tools</h3>
+          <p>Bash</p>
+          <p>Webpack</p>
+          <p>Git &amp; Github</p>
+          <p>Apache</p>
+          <p>SVN</p>
+          <p>Android Studio</p>
+        </span>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2 class="title">Projects</h2>
+      <div class="content">
+        <div class="project">
+          <a target="_blank" href="https://www.getbarbud.com">
+      			<h3 class="right-arrow-after">BarBud</h3>
+          </a>
+  				<p>Native mobile application that allows users to order drinks straight from their phone and skip the busy bar. Payment is handled for the bars, meaning the user can keep having fun and wait for the push notification that their drinks are ready to get picked up!</p>
+  				<p>Written fully in React Native and Redux, BarBud is available on both iOS and Android and continues to receive support and new features with weekly updates to the app.</p>
+        </div>
+
+        <div class="project">
+          <a target="_blank" href="http://wikilinks.io">
+	           <h3 class="right-arrow-after">WikiLinks</h3>
+          </a>
+    			<p>The 6 Degrees of Wikipedia game, ported into its own webapp. Experiment in React and AJAX to produce a single-load game, with server-side rendering of React components.</p>
+        </div>
+
+        <div class="project">
+          <a target="_blank" href="https://github.com/wtglover/DejaView">
+	          <h3 class="right-arrow-after">DejaView</h3>
+          </a>
+    			<p>Service that allowed anyone to create private and anonymous photo albums where any user with the access code could upload and view full-resolution photos.</p>
+        </div>
+
+        <div class="project">
+          <a target="_blank" href="https://github.com/wtglover/twocentsapp-backend">
+	          <h3 class="right-arrow-after">TwoCents</h3>
+          </a>
+    			<p>Android application where users could anonymously post questions for others in their area to vote on the answer or solution</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2 class="title">Widgets and Experiments</h2>
+      <div class="content">
+        <div class="project">
+          <a href="projects/sudoku">
+      			<h3 class="right-arrow-after">Sudoku Solver</h3>
+          </a>
+  				<p>Solves Sudoku puzzles using a combination of constraint satisfaction problems, pre-emptive sets, and other AI techniques</p>
+        </div>
+
+        <div class="project">
+          <a href="projects/secretsanta">
+	          <h3 class="right-arrow-after">Secret Santa</h3>
+          </a>
+    			<p>Simple service that emails a group of users each of their secret santa assignments</p>
+        </div>
+      </div>
+    </section>
+
+
+  	<!--
+      <h3>Education</h3>
+      <ul class="no-bullets section-list">
+          <li class="subsection"><h4>Tufts University School of Engineering</h4>
+              <span class="right-info">
+                  <p class="date">Expected December 2018</p>
+                  <p class="location">Medford, MA</p>
+              </span>
+              <div class="info">
+                  <ul class="no-bullets">
+                      <li>B.S. in Computer Science</li>
+                      <li>Minor in Entrepreneurship and Leadership Studies</li>
+                      <li>GPA: 3.59 / 4.0, Dean’s List (Fall 2015 - Present)</li>
+                      <li style="font-style: italic;">Relavent course work: Data and Machine Structures, Algorithms, Computation Theory, Programming Languages, Artificial Intelligence, Networks, Web Programming, Android Development, Calculus</li>
+                  </ul>
+              </div>
+          </li>
+
+          <li class="subsection"><h4>Rockbridge County High School</h4>
+              <span class="right-info">
+                  <p class="date">August 2010 – June 2014</p>
+                  <p class="location">Lexington, VA</p>
+              </span>
+              <div class="info">
+                  <div>Advanced Studies Diploma. GPA: 3.95 / 4.0</div>
+              </div>
+          </li>
+      </ul>
+
+      <h3>Work Experience</h3>
+      <ul class="no-bullets section-list">
+
+          <li class="subsection"><h4>Facebook</h4>
+              <span class="right-info">
+                  <p class="date">May - August 2017 (12 weeks)</p>
+                  <p class="location">Menlo Park, CA</p>
+              </span>
+              <div class="info">
+                  <p class="title">Software Engineering Intern, Lead Ads Product</p>
+                  <ul class="bullets">
+                      <li>Refactored majority of product's Android codebase to make it more extensible and maintainable. Used these changes to build new features that would have otherwise been impossible</li>
+                      <li>Analyzed data from A/B tests to make meaningful product decisions</li>
+                      <li>Built new client-facing tools in Ads Manager using React</li>
+                  </ul>
+              </div>
+          </li>
+
+          <li class="subsection"><h4>Switch Media</h4>
+          <span class="date right-info">September 2014 - May 2016</span>
+          <div style="margin-bottom:.5em;">Australia’s industry leader in storing, encoding, and distributing live and on-demand video content</div>
+
+          <ul class="no-bullets section-list">
+
+              <li><p class="title">Application Architect and Developer</p>
+              <span class="right-info">
+                  <p class="date">October 2015 - May 2016</p>
+                  <p class="location">Medford, MA</p>
+              </span>
+              <ul class="bullets">
+                  <li>Designed and built Presto, an Australian video on demand service similar to Hulu, for the Roku streaming platform on contract basis</li>
+                  <li>Performed code reviews on the two other members of development team</li>
+              </ul></li>
+
+              <li><p class="title">Support Engineer and Back-End Programmer</p>
+              <span class="right-info">
+                  <p class="date">September 2014 - May 2015</p>
+                  <p class="location">Sydney, Australia</p>
+              </span>
+              <ul class="bullets">
+                  <li>First point of contact for clients including Foxtel, the largest cable company in Australia</li>
+                  <li>Sole on-site representative of Switch Media to provide support to Yahoo! 7 at the Australian Open Tennis Tournament in Melbourne, where Switch provided live streams for all 14 courts</li>
+                  <li>Built custom internal and client-facing web tools using PHP, HTML, JavaScript</li>
+                  <li>Wrote server-side scripts to analyze internal workflow data and determine bottlenecks</li>
+              </ul></li>
+
+          </ul></li>
+
+          <li class="subsection"><h4>Tufts University</h4>
+              <span class="right-info">
+                  <p class="date">September 2017 - Present</p>
+                  <p class="location">Somerville, MA</p>
+              </span>
+              <div class="info">
+                  <p class="title">Teaching Assistant - Web Programming</p>
+                  <ul class="bullets">
+                      <li>Helped students grasp concepts such as the client-server model, asynchronous tasks, and database systems</li>
+                      <li>Reviewed student code for both improvements and functional correctness</li>
+                      <li>Held office hours</li>
+                  </ul>
+              </div>
+          </li>
+
+          <li class="subsection"><h4>Camp Foley</h4>
+              <span class="right-info">
+                  <p class="date">June - August 2016 (9 weeks)</p>
+                  <p class="location">Pine River, MN</p>
+              </span>
+              <div class="info">
+                  <p class="title">Camp Counselor and Trip Leader</p>
+                  <ul class="bullets">
+                      <li>Planned and executed events for approximately 160 people</li>
+                      <li>Taught high-risk activities including archery and rock climbing</li>
+                  </ul>
+              </div>
+          </li>
+
+          <li class="subsection"><h4>Washington &amp; Lee University</h4>
+              <span class="right-info">
+                  <p class="date">September 2013 – March 2014</p>
+                  <p class="location">Lexington, VA</p>
+              </span>
+              <div class="info">
+                  <p class="title">Intern in Sound Engineering Studio</p>
+                  <ul class="bullets">
+                      <li>Built amplifiers and other recording equipment</li>
+                      <li>Sole engineer on various recording sessions, both in the studio and live</li>
+                  </ul>
+              </div>
+          </li>
+
+      </ul>
+
+      <h3>Skills</h3>
+      <table>
+          <tr>
+              <td>Languages</td>
+              <td>BrightScript, C/C++, PHP, HTML, CSS, JavaScript, Python, Java, LaTex</td>
+          </tr>
+          <tr>
+              <td class="table-header">Frameworks</td>
+              <td>Django, Node, MySQL, MongoDb</td>
+          </tr>
+          <tr>
+              <td class="table-header">Tools</td>
+              <td>Unix, Apache, Git &amp; Github, SVN, Android Studio</td>
+          </tr>
+      </table>
+
+      <h3>Extracurricular Activities</h3>
+      <ul class="no-bullets section-list">
+          <li><b>Tufts Marathon Team</b></li>
+          <li><b>Tufts Ultimate Team</b></li>
+          <li><b>Tufts Mountain Club</b></li>
+      </ul>
+  </div> -->
+
+  <aside id="contact">
+    <div class="container">
+      <div class="item-container" id="twitter">
+        <a href="https://twitter.com/wtglover" target="_blank" rel="noopener noreferrer">
+          <img src="/images/twitter.svg" alt="Twitter">
+          <span>@wtglover</span>
+        </a>
+      </div>
+      <div class="item-container" id="instagram">
+        <a href="https://www.instagram.com/glovertobias/" target="_blank" rel="noopener noreferrer">
+          <img src="/images/instagram.png" alt="Instagram">
+          <span>@glovertobias</span>
+        </a>
+      </div>
+      <div class="item-container" id="linkedin">
+        <a href="https://www.linkedin.com/in/wtglover" target="_blank" rel="noopener noreferrer">
+          <img src="/images/linkedin.svg" alt="LinkedIn">
+          <span>/in/wtglover</span>
+        </a>
+      </div>
+      <div class="item-container" id="github">
+        <a href="https://github.com/wtglover" target="_blank" rel="noopener noreferrer">
+          <img src="/images/github.svg" alt="GitHub">
+          <span>/wtglover</span>
+        </a>
+      </div>
+      <div class="item-container" id="email">
+        <a href="mailto:william.glover@tufts.edu" target="_blank" rel="noopener noreferrer">
+          <img src="/images/mail.svg" alt="Email">
+          <span>william.glover@tufts.edu</span>
+        </a>
+      </div>
+    </div>
+  </aside>
 </div>
 
 <%- include ../partials/footer %>

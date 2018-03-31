@@ -7,8 +7,8 @@ var opn = require('opn');
 global.test   = false;
 var localPort = 5000;
 
-// app.set('views', __dirname + '/src/client/views');
-// app.set('view engine', 'ejs');
+app.set('views', __dirname + '/src/client/views');
+app.set('view engine', 'ejs');
 
 app.set('port', (process.env.PORT || localPort));
 app.listen(app.get('port'), function() {
@@ -37,7 +37,7 @@ app.use(function(request, response, next) {
 });
 
 app.use('/api', apiRouter);
-// app.use('/',    pageRouter);
+app.use('/',    pageRouter); 
 // app.use(function(request, response) {
 // 	response.redirect("/pagenotfound");
 // });

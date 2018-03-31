@@ -39,31 +39,30 @@ $section-padding-right-min: 25px;
     }
     .content {
       flex: 5;
-      &.skills {
-        width: 80%;
-        margin: 0 auto;
-        p {
-          margin: 0;
-        }
-      }
     }
   }
 }
 
-.project:not(:last-child) {
-  margin-bottom: 50px;
+.project {
+  h3 {
+    margin-bottom: 5px;
+    font-weight: 400;
+  }
+  &:not(:last-child) {
+    margin-bottom: 40px;
+  }
 }
 
 #main-content section {
   padding: 0 $section-padding-right $section-padding-bottom 0;
 }
 
-#resume-section {
+#resume-link {
   text-align: right;
-  margin-right: 100px;
+  margin: 50px 100px 0 0;
 }
 
-#resume-link {
+#resume-prompt {
   width: 110%;
   text-align: center;
   &:after {
@@ -76,6 +75,14 @@ $section-padding-right-min: 25px;
       height: 100%;
       top: 0;
     }
+  }
+}
+
+#skills {
+  width: 80%;
+  margin: 0 auto;
+  p {
+    margin: 0;
   }
 }
 
