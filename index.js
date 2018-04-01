@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 var express    = require('express');
 var app        = express();
 var apiRouter  = require('./src/server/routers/api-router');
@@ -37,7 +39,4 @@ app.use(function(request, response, next) {
 });
 
 app.use('/api', apiRouter);
-app.use('/',    pageRouter); 
-// app.use(function(request, response) {
-// 	response.redirect("/pagenotfound");
-// });
+app.use('/',    pageRouter);

@@ -7,6 +7,7 @@ module.exports = {
     "index": __dirname + "/src/client/scripts/index/index.js",
     "secretsanta": __dirname + "/src/client/scripts/secretsanta/index.js",
     "sudoku": __dirname + "/src/client/scripts/sudoku/index.js",
+    "pagenotfound": __dirname + "/src/client/scripts/pagenotfound/index.js",
   },
   output: {
     path: __dirname + '/build',

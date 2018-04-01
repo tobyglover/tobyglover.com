@@ -114,7 +114,7 @@ eval("\n\nvar _jquery = __webpack_require__(/*! jquery */ \"./node_modules/jquer
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nmodule.exports = {\n  ContactAside: __webpack_require__(/*! ./ContactAside */ \"./src/client/scripts/shared/ContactAside.js\")\n};\n\n//# sourceURL=webpack:///./src/client/scripts/shared/index.js?");
+eval("\n\nfunction getUrlParameter(name) {\n  name = name.replace(/[\\[]/, '\\\\[').replace(/[\\]]/, '\\\\]');\n  var regex = new RegExp('[\\\\?&]' + name + '=([^&#]*)');\n  var results = regex.exec(location.search);\n  return results === null ? '' : decodeURIComponent(results[1].replace(/\\+/g, ' '));\n};\n\nmodule.exports = {\n  getUrlParameter: getUrlParameter,\n  ContactAside: __webpack_require__(/*! ./ContactAside */ \"./src/client/scripts/shared/ContactAside.js\")\n};\n\n//# sourceURL=webpack:///./src/client/scripts/shared/index.js?");
 
 /***/ }),
 

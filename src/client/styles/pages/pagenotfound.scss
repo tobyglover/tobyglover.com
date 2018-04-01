@@ -1,0 +1,47 @@
+@import "../partials/base";
+@import "../partials/contactaside";
+
+@include addMediaQueriesForContactAside(#main-content)
+
+#main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  a {
+    margin-bottom: 15px;
+    display: block;
+    img {
+      margin: 0 auto;
+      display: block;
+      height: 60px;
+    }
+  }
+}
+
+#back-to-home-container {
+  opacity: 0;
+  transition: opacity 0.5s;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#stay {
+  color: $accent-green;
+  margin-top: 15px;
+  &:after {
+    background: $accent-green;
+  }
+}
+
+#gif {
+  height: 200px;
+}
+
+.show-gifs {
+  span {
+    margin-top: 10px;
+  }
+}

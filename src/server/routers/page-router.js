@@ -21,4 +21,8 @@ router.get('/pagenotfound', function(request, response) {
 	response.render('pages/pagenotfound');
 });
 
+router.get("*", function(request, response) {
+  response.redirect('/pagenotfound?p=' + request.originalUrl);
+});
+
 module.exports = router;

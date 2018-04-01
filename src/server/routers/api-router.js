@@ -36,10 +36,28 @@ router.post('/sudoku', function(request, response) {
 
    			thread.kill();
   		});
-		
+
 	} else {
 		response.status(406).send({reason: "Invalid board"});
 	}
+});
+
+router.get("/randomgif", function(request, response) {
+  const https = require("https");
+  const url = `https://api.giphy.com/v1/gifs/random?api_key=${process.env.GIPHY_KEY}&rating=PG-13`;
+  console.log(url);
+
+  https.get(url, res => {
+    res.setEncoding("utf8");
+    let body = "";
+    res.on("data", data => {
+      body += data;
+    });
+    res.on("end", () => {
+      body = JSON.parse(body);
+      response.send(body.data.images.fixed_height);
+    });
+  });
 });
 
 module.exports = router;
