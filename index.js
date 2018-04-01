@@ -4,7 +4,7 @@ var express    = require('express');
 var app        = express();
 var apiRouter  = require('./src/server/routers/api-router');
 var pageRouter = require('./src/server/routers/page-router');
-var opn = require('opn');
+var opn        = require('opn');
 
 global.test   = false;
 var localPort = 5000;
