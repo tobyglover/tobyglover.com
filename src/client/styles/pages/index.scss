@@ -16,15 +16,17 @@ header {
 }
 
 .content-section {
+  margin-left: -100px;
   display: flex;
   padding-bottom: 200px;
   .title {
     flex: 1;
-    padding: 0 60px 5px 0;
+    padding-bottom: 5px;
     text-align: right;
   }
   .content {
-    flex: 5;
+    padding-left: 60px;
+    flex: 3;
   }
 }
 
@@ -70,7 +72,39 @@ header {
   }
 }
 
+.position {
+  &:not(:last-child) {
+    margin-bottom: 50px;
+  }
+  .info {
+    margin-bottom: 5px;
+    .maininfo, .subinfo {
+      display: flex;
+      flex-direction: row;
+      .company {
+        font-weight: 400;
+      }
+    }
+    .company, .job-title {
+      flex: 1;
+    }
+    .job-title, .location {
+      color: $darkgray;
+      font-size: .95em;
+    }
+  }
+  .position-desc {
+    font-size: .9em;
+  }
+}
+
 @include addMediaQueriesForContactAside(#main-content)
+
+@media screen and (max-width: 1125px) {
+  #main-content .content-section {
+    margin-left: 0px;
+  }
+}
 
 @media screen and (max-width: $contact-aside-transition-bottom-width) {
   #main-content .content-section {
@@ -78,11 +112,14 @@ header {
     .title {
       text-align: left;
     }
-  }
-}
-
-@media screen and (max-width: 800px) {
-  #skills {
-    width: 100%;
+    .content {
+      padding: 0;
+    }
+    #skills {
+      width: 100%;
+    }
+    .position .subinfo {
+      display: block;
+    }
   }
 }
