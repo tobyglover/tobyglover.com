@@ -1,0 +1,120 @@
+@import "../partials/base";
+@import "../partials/contactaside";
+
+@include addMediaQueriesForContactAside(#main-content)
+
+#board {
+	text-align: center;
+	margin: 1em auto;
+  .row {
+  	border-color: black;
+  	border-style: solid;
+  	border-top-width: 3px;
+  	border-right-width: 3px;
+  	border-left-width: 3px;
+  	border-bottom: none;
+  	display: inline-block;
+    &:last-child {
+    	border-bottom: 3px solid black;
+    }
+  }
+}
+
+#btn-container {
+  text-align: right;
+  button {
+  	padding: .5em 1em;
+  	border: none;
+  	border-radius: 10px;
+  	margin: .3em;
+  	color: white;
+    &:hover {
+    	cursor: pointer;
+    }
+  }
+}
+
+#submit {
+	background-color: #48ad43;
+}
+
+#submit:hover {
+	background-color: #61bc5c;
+}
+
+#clear {
+	background-color: #f96868;
+}
+
+#clear:hover {
+	background-color: #ff8989;
+}
+
+#clear:disabled {
+	cursor: default;
+	background-color: #f7c8c8;
+}
+
+#loading {
+	display: none;
+	float: left;
+	clear: left;
+	margin-top: -32em;
+	margin-left: 7.25em;
+	z-index: 1000;
+	position: relative;
+	width: 37em;
+	height: 32.5em;
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+#loading div {
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	margin: 12em 11.5em;
+}
+
+#loading img {
+	display: inline-block;
+	height: auto;
+	width: 5em;
+}
+
+#loading h4 {
+	display: block;
+}
+
+.section {
+	display: inline-block;
+	border-right: 3px solid black;
+}
+
+.section:last-child {
+	border-right: none;
+}
+
+.cell {
+	text-align: center;
+	outline: none;
+	width: 1.5em;
+	height: 1.5em;
+	font-size: 30px;
+	border: 1px solid gray;
+}
+
+.solved {
+	background-color: #a0ef83;
+}
+
+.section:last-child {
+	border: none;
+}
+
+@media screen and (max-width: 475px) {
+  .cell {
+  	width: 1.35em;
+  	height: 1.35em;
+  	font-size: 20px;
+  }
+}

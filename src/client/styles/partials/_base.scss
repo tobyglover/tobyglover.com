@@ -27,6 +27,7 @@ h1 {
 
 h2 {
   text-transform: uppercase;
+  color: $accent-green;
 }
 
 b {
@@ -51,6 +52,9 @@ a, a:visited {
 
 #back-to-home {
   margin: 20px;
+  img {
+    height: 2em;
+  }
 }
 
 .underline {
