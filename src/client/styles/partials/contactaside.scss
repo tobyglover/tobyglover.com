@@ -1,0 +1,202 @@
+@import "colors";
+@import "variables";
+
+$contact-button-diameter: 50px;
+$contact-button-top-padding: 12px;
+$contact-button-diameter-s: 30px;
+$contact-button-top-padding-s: 4px;
+
+@mixin fromDiameter($diameter, $top-padding) {
+  .item-container {
+    height: $diameter;
+    border-radius: $diameter;
+  }
+  a {
+    height: $diameter;
+    span {
+      height: $diameter;
+      margin-left: -$diameter;
+      padding: $top-padding 10px 0 $diameter + 3px;
+      border-radius: $diameter / 2;
+    }
+  }
+}
+
+#contact {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  &.contract {
+    .item-container:not(:first-child) {
+      margin-top: -20px;
+    }
+  }
+  &.fixed {
+    position: fixed;
+    left: 0;
+  }
+  @include fromDiameter($contact-button-diameter, $contact-button-top-padding);
+  .item-container {
+    overflow: hidden;
+    margin-bottom: 3px;
+    padding-right: 3px;
+    position: relative;
+    transition: margin-top .25s;
+
+    &#twitter {
+      color: $twitter-color;
+      z-index: 5;
+      a {
+        img {
+          background-color: $twitter-color;
+        }
+        span {
+          color: $twitter-color;
+          border-color: $twitter-color;
+          background-color: $twitter-background-color;
+        }
+      }
+    }
+
+    &#instagram {
+      color: $instagram-color;
+      z-index: 4;
+      a {
+        img {
+          background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+        }
+        span {
+          color: $instagram-color;
+          border-color: $instagram-color;
+          background-color: $instagram-background-color;
+        }
+      }
+    }
+
+    &#linkedin {
+      color: $linkedin-color;
+      z-index: 3;
+      a {
+        img {
+          background-color: $linkedin-color;
+        }
+        span {
+          color: $linkedin-color;
+          border-color: $linkedin-color;
+          background-color: $linkedin-background-color;
+        }
+      }
+    }
+
+    &#github {
+      color: $github-color;
+      z-index: 2;
+      a {
+        img {
+          background-color: $github-color;
+        }
+        span {
+          color: $github-color;
+          border-color: $github-color;
+          background-color: $github-background-color;
+        }
+      }
+    }
+
+    &#email {
+      color: $email-color;
+      z-index: 1;
+      a {
+        img {
+          background-color: $email-color;
+        }
+        span {
+          color: $email-color;
+          border-color: $email-color;
+          background-color: $email-background-color;
+        }
+      }
+    }
+  }
+  a {
+    display: inline-flex;
+    align-items: center;
+    &:hover span {
+      left: 0;
+    }
+    img {
+      height: 100%;
+      border-radius: 50%;
+      z-index: 2;
+    }
+    span {
+      box-sizing: border-box;
+      position: relative;
+      left: -100%;
+      transition: left .35s;
+      border-width: 2px;
+      border-style: solid;
+      font-weight: 400;
+    }
+  }
+}
+
+@mixin addMediaQueriesForContactAside($parentId) {
+  @media screen and (max-width: 1425px) {
+    #{$parentId} {
+      padding-right: 50px;
+      margin-left: $contact-aside-width;
+      margin-right: $contact-aside-width;
+    }
+  }
+
+  @media screen and (max-width: 1250px) {
+    #{$parentId} {
+      margin-left: 100px;
+    }
+  }
+
+  @media screen and (max-width: $contact-aside-transition-small-width) {
+    #{$parentId} {
+      padding-right: 10px;
+      margin-right: $contact-aside-width-s;
+      margin-left: 10px;
+    }
+  }
+
+  @media screen and (max-width: $contact-aside-transition-bottom-width) {
+    #{$parentId} {
+      padding: 0 10px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+@media screen and (max-width: $contact-aside-transition-small-width) {
+  #contact {
+    @include fromDiameter($contact-button-diameter-s, $contact-button-top-padding-s);
+    span {
+      font-size: .75em;
+    }
+  }
+}
+
+@media screen and (max-width: $contact-aside-transition-bottom-width) {
+  #contact {
+    position: relative;
+    top: 0;
+    left: 0;
+    .container {
+      text-align: center;
+      margin: 30px auto;
+      max-width: 800px;
+    }
+    .item-container {
+      display: inline-block;
+    }
+    a span {
+      left: 0;
+    }
+  }
+}

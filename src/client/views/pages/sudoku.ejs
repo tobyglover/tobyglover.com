@@ -1,29 +1,30 @@
-<%- include('../partials/header-navbar.ejs', {
-    title: "Sudoku Solver",
-    metaDescription: "Sudoku solver that uses a combination of AI techniques",
-    metaKeywords: "sudoku solver, AI, pre-emptive sets",
-    extensions: ['<link rel="stylesheet" href="/styles/sudoku.css" type="text/css">',
-                 '<script type="text/javascript" src="/scripts/sudoku.js"></script>']
+<%- include('../partials/header', {
+  title: "Sudoku Solver",
+  page: "sudoku",
+  metaDescription: "Sudoku solver that uses a combination of AI techniques",
+  metaKeywords: "sudoku solver, AI, pre-emptive sets",
 }) %>
 
-<div class="main-content">
+<%- include ../partials/secondpage-header %>
 
-    <h2>Sudoku Solver</h2>
+<div id="main-content">
+  <h2>Sudoku Solver</h2>
+  <p>Solves Sudoku puzzles using a combination of <a class="underline" href="http://aima.cs.berkeley.edu/2nd-ed/newchap05.pdf" target="_blank">constraint satisfaction problems</a>, <a class="underline" href="http://digitalcommons.unl.edu/cgi/viewcontent.cgi?article=1015&context=mathmidexppap" target="_blank">pre-emptive sets</a>, and other AI techniques</p>
 
-    <p>Solves Sudoku puzzles using a combination of <a class="link" href="http://aima.cs.berkeley.edu/2nd-ed/newchap05.pdf" target="_blank">constraint satisfaction problems</a>, <a class="link" href="http://digitalcommons.unl.edu/cgi/viewcontent.cgi?article=1015&context=mathmidexppap" target="_blank">pre-emptive sets</a>, and other AI techniques</p>
+  <div id="board"></div>
 
-    <div id="board"></div>
-
-    <button id="submit">Submit</button>
+  <div id="btn-container">
     <button id="clear" disabled="true">Clear</button>
+    <button id="submit">Submit</button>
+  </div>
 
-    <div id="loading">
-    	<div>
-    		<img src="/images/spinner.gif" alt="loading spinner"/>
-    		<h4>processing...</h4>
-    	</div>
-    </div>
-
+  <div id="loading">
+  	<div>
+  		<img src="/images/spinner.gif" alt="loading spinner"/>
+  		<h4>processing...</h4>
+  	</div>
+  </div>
+  <%- include ../partials/contactaside %>
 </div>
 
 <%- include ../partials/footer.ejs %>

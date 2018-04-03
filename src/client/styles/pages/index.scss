@@ -1,0 +1,156 @@
+@import "../partials/base";
+@import "../partials/contactaside";
+
+$headshot-diameter: 100px;
+
+header {
+  position: relative;
+  height: 80vh;
+  width: 100vw;
+  background-image: url("/images/outdoors.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  #opacity {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background:rgba(255,255,255,0.3);
+  }
+  #header-content-container {
+    height: 100%;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    #header-content {
+      position: absolute;
+      bottom: 10%;
+      left: 0;
+      padding: 0 30px;
+      * {
+        display: inline-block;
+        color: $body-background-color;
+        background: $header-green;
+        padding: 20px;
+        &:first-child {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.content-section {
+  margin-left: -100px;
+  display: flex;
+  padding-bottom: 200px;
+  &:last-child {
+    padding-bottom: 100px;
+  }
+  .title {
+    flex: 1;
+    padding-bottom: 5px;
+    text-align: right;
+  }
+  .content {
+    padding-left: 60px;
+    flex: 3;
+  }
+}
+
+.project {
+  h3 {
+    margin-bottom: 5px;
+    font-weight: 400;
+  }
+  &:not(:last-child) {
+    margin-bottom: 40px;
+  }
+}
+
+#resume-link {
+  text-align: right;
+  margin: 50px 100px 0 0;
+}
+
+#resume-prompt {
+  width: 110%;
+  text-align: center;
+  &:after {
+    transition: all .2s ease-in-out;
+  }
+  &:hover {
+    transition: color .2s ease-in-out .15s;
+    color: white;
+    &:after {
+      height: 100%;
+      top: 0;
+    }
+  }
+}
+
+#skills {
+  width: 80%;
+  margin: 0 auto;
+  h3 {
+    font-weight: 400;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+.position {
+  &:not(:last-child) {
+    margin-bottom: 40px;
+  }
+  .info {
+    margin-bottom: 5px;
+    .maininfo, .subinfo {
+      display: flex;
+      flex-direction: row;
+      .company {
+        font-weight: 400;
+      }
+    }
+    .company, .job-title {
+      flex: 1;
+    }
+    .job-title, .location {
+      color: $darkgray;
+      font-size: .95em;
+    }
+  }
+  .position-desc {
+    font-size: .95em;
+  }
+}
+
+@include addMediaQueriesForContactAside(#main-content)
+
+@media screen and (max-width: 1125px) {
+  #main-content .content-section {
+    margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: $contact-aside-transition-bottom-width) {
+  #main-content .content-section {
+    display: block;
+    .title {
+      text-align: left;
+    }
+    .content {
+      padding: 0;
+    }
+    #skills {
+      width: 100%;
+    }
+    .position .subinfo {
+      display: block;
+    }
+  }
+}

@@ -1,10 +1,21 @@
-<%- include('../partials/header-navbar.ejs', {
+<%- include('../partials/header.ejs', {
 	title: "Page Not Found",
+  page: "pagenotfound",
 	metaDescription: "Page does not exist"
 }) %>
 
-<div class="main-content">
-	<p id="PageNotFound">Sorry, this page does not exist. <a href="/" class="link">Click here</a> to navigate back home.</p>
+<div id="back-to-home-container">
+  <%- include ../partials/secondpage-header %>
+</div>
+
+<div id="main">
+  	<p id="message">Sorry, the page you requested does not exist.</p>
+    <a href="/">
+      <img src="/images/home.png">
+      <span class="underline">Take Me Home</span>
+    </a>
+
+    <span id="stay" class="underline">I'd Rather Stay</span>
 </div>
 
 <%- include ../partials/footer.ejs %>
