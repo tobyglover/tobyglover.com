@@ -9,6 +9,10 @@ router.get('/projects/sudoku', function(request, response) {
 	response.render('pages/sudoku');
 });
 
+router.get('/projects/dragexample', function(request, response) {
+	response.render('pages/dragexample');
+});
+
 router.get('/projects/secretsanta', function(request, response) {
 	response.render('pages/secretsanta');
 });
