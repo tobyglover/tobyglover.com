@@ -2,3 +2,21 @@
 @import "../partials/contactaside";
 
 @include addMediaQueriesForContactAside(#main-content)
+
+button {
+  padding: .5em 1em;
+  border: none;
+  border-radius: 10px;
+  margin: .3em;
+  color: white;
+  background-color: #48ad43;
+  &:hover {
+    cursor: pointer;
+    background-color: #61bc5c;
+  }
+}
+
+#canvas-container {
+  width: 100%;
+  height: 500px;
+}

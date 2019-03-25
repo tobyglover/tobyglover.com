@@ -97,6 +97,30 @@ eval("var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!\n * jQ
 
 /***/ }),
 
+/***/ "./src/client/scripts/dragexample/DraggableCanvas.js":
+/*!***********************************************************!*\
+  !*** ./src/client/scripts/dragexample/DraggableCanvas.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _DraggableElement = __webpack_require__(/*! ./DraggableElement */ \"./src/client/scripts/dragexample/DraggableElement.js\");\n\nvar _DraggableElement2 = _interopRequireDefault(_DraggableElement);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nfunction _CustomElement() {\n  return Reflect.construct(HTMLElement, [], this.__proto__.constructor);\n}\n\n;\nObject.setPrototypeOf(_CustomElement.prototype, HTMLElement.prototype);\nObject.setPrototypeOf(_CustomElement, HTMLElement);\n\n\nvar tmpl = document.createElement(\"template\");\ntmpl.innerHTML = '\\n  <style>\\n    #content {\\n      width: 100%;\\n      height: 100%;\\n      background-color: white;\\n      position: relative;\\n    }\\n  </style>\\n  <div id=\"content\">\\n';\n\nvar DraggableCanvas = function (_CustomElement2) {\n  _inherits(DraggableCanvas, _CustomElement2);\n\n  function DraggableCanvas() {\n    _classCallCheck(this, DraggableCanvas);\n\n    var _this = _possibleConstructorReturn(this, (DraggableCanvas.__proto__ || Object.getPrototypeOf(DraggableCanvas)).call(this));\n\n    _this.attachShadow({ mode: 'open' }).appendChild(tmpl.content.cloneNode(true));\n    _this.contentContainer = _this.shadowRoot.querySelector(\"#content\");\n    return _this;\n  }\n\n  _createClass(DraggableCanvas, [{\n    key: 'addElement',\n    value: function addElement() {\n      var element = new _DraggableElement2.default();\n      this.contentContainer.appendChild(element);\n    }\n  }]);\n\n  return DraggableCanvas;\n}(_CustomElement);\n\nexports.default = DraggableCanvas;\n\n\nwindow.customElements.define('draggable-canvas', DraggableCanvas);\n\n//# sourceURL=webpack:///./src/client/scripts/dragexample/DraggableCanvas.js?");
+
+/***/ }),
+
+/***/ "./src/client/scripts/dragexample/DraggableElement.js":
+/*!************************************************************!*\
+  !*** ./src/client/scripts/dragexample/DraggableElement.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nfunction _CustomElement() {\n  return Reflect.construct(HTMLElement, [], this.__proto__.constructor);\n}\n\n;\nObject.setPrototypeOf(_CustomElement.prototype, HTMLElement.prototype);\nObject.setPrototypeOf(_CustomElement, HTMLElement);\nvar width = 100;\nvar height = 100;\n\nvar DraggableElement = function (_CustomElement2) {\n  _inherits(DraggableElement, _CustomElement2);\n\n  function DraggableElement() {\n    _classCallCheck(this, DraggableElement);\n\n    var _this = _possibleConstructorReturn(this, (DraggableElement.__proto__ || Object.getPrototypeOf(DraggableElement)).call(this));\n\n    _this.style.width = width + \"px\";\n    _this.style.height = height + \"px\";\n    _this.style.backgroundColor = \"red\";\n    _this.style.position = \"absolute\";\n    _this.dragging = false;\n    return _this;\n  }\n\n  _createClass(DraggableElement, [{\n    key: \"connectedCallback\",\n    value: function connectedCallback() {\n      this.onmousedown = this.onDragStart.bind(this);\n      document.addEventListener('mouseup', this.onDragEnd.bind(this));\n      document.addEventListener('mousemove', this.onDrag.bind(this));\n    }\n  }, {\n    key: \"disconnectedCallback\",\n    value: function disconnectedCallback() {\n      this.onmousedown = null;\n      document.removeEventListener('mouseup', this.onDragEnd.bind(this));\n      document.removeEventListener('mousemove', this.onDrag.bind(this));\n    }\n  }, {\n    key: \"updatePosition\",\n    value: function updatePosition(x, y) {\n      var parentRec = this.parentNode.getBoundingClientRect();\n      if (x < 0) {\n        x = 0;\n      } else if (x + width > parentRec.width) {\n        x = parentRec.width - width;\n      }\n\n      if (y < 0) {\n        y = 0;\n      } else if (y + height > parentRec.height) {\n        y = parentRec.height - height;\n      }\n\n      this.style.left = x + \"px\";\n      this.style.top = y + \"px\";\n    }\n  }, {\n    key: \"onDragStart\",\n    value: function onDragStart(e) {\n      e.preventDefault();\n      this.dragging = true;\n      var rect = this.getBoundingClientRect();\n      this.mouseOffsetX = e.clientX - rect.left;\n      this.mouseOffsetY = e.clientY - rect.top;\n    }\n  }, {\n    key: \"onDrag\",\n    value: function onDrag(e) {\n      if (this.dragging) {\n        var parentRec = this.parentNode.getBoundingClientRect();\n        var x = e.clientX - parentRec.left - this.mouseOffsetX;\n        var y = e.clientY - parentRec.top - this.mouseOffsetY;\n        this.updatePosition(x, y);\n      }\n    }\n  }, {\n    key: \"onDragEnd\",\n    value: function onDragEnd(e) {\n      this.dragging = false;\n    }\n  }]);\n\n  return DraggableElement;\n}(_CustomElement);\n\nexports.default = DraggableElement;\n\n\nwindow.customElements.define('draggable-element', DraggableElement);\n\n//# sourceURL=webpack:///./src/client/scripts/dragexample/DraggableElement.js?");
+
+/***/ }),
+
 /***/ "./src/client/scripts/dragexample/index.js":
 /*!*************************************************!*\
   !*** ./src/client/scripts/dragexample/index.js ***!
@@ -105,7 +129,7 @@ eval("var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!\n * jQ
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\n__webpack_require__(/*! ../../styles/pages/secretsanta.scss */ \"./src/client/styles/pages/secretsanta.scss\");\n\nvar _shared = __webpack_require__(/*! ../shared */ \"./src/client/scripts/shared/index.js\");\n\nvar _jquery = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n\nvar _jquery2 = _interopRequireDefault(_jquery);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n(0, _jquery2.default)(document).ready(function () {\n  _shared.ContactAside.init();\n  init();\n});\n\nfunction init() {}\n\n//# sourceURL=webpack:///./src/client/scripts/dragexample/index.js?");
+eval("\n\n__webpack_require__(/*! ../../styles/pages/dragexample.scss */ \"./src/client/styles/pages/dragexample.scss\");\n\nvar _shared = __webpack_require__(/*! ../shared */ \"./src/client/scripts/shared/index.js\");\n\nvar _DraggableCanvas = __webpack_require__(/*! ./DraggableCanvas */ \"./src/client/scripts/dragexample/DraggableCanvas.js\");\n\nvar _DraggableCanvas2 = _interopRequireDefault(_DraggableCanvas);\n\nvar _jquery = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n\nvar _jquery2 = _interopRequireDefault(_jquery);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n(0, _jquery2.default)(document).ready(function () {\n  _shared.ContactAside.init();\n  init();\n});\n\nvar canvas = null;\n\nfunction init() {\n  canvas = document.getElementById(\"canvas\");\n  document.getElementById(\"addElementButton\").onclick = addElement;\n}\n\nfunction addElement() {\n  canvas.addElement();\n}\n\n//# sourceURL=webpack:///./src/client/scripts/dragexample/index.js?");
 
 /***/ }),
 
@@ -133,14 +157,14 @@ eval("\n\nfunction getUrlParameter(name) {\n  name = name.replace(/[\\[]/, '\\\\
 
 /***/ }),
 
-/***/ "./src/client/styles/pages/secretsanta.scss":
+/***/ "./src/client/styles/pages/dragexample.scss":
 /*!**************************************************!*\
-  !*** ./src/client/styles/pages/secretsanta.scss ***!
+  !*** ./src/client/styles/pages/dragexample.scss ***!
   \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/client/styles/pages/secretsanta.scss?");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/client/styles/pages/dragexample.scss?");
 
 /***/ })
 

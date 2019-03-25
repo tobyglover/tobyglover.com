@@ -19,7 +19,11 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "babel-loader"
+        loader: "babel-loader",
+        options: {
+           presets: ['es2015'],
+           plugins: ['transform-custom-element-classes', 'transform-es2015-classes']
+        },
       },
       {
         test: /\.(scss|css)$/,
