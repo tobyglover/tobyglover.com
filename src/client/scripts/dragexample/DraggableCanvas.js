@@ -22,8 +22,18 @@ export default class DraggableCanvas extends HTMLElement {
     this.contentContainer = this.shadowRoot.querySelector("#content");
   }
 
+  getRandomColorHex() {
+    let hex = "#";
+    for (let i = 0; i < 3; i++) {
+      let color = Math.round(Math.random() * 255);
+      hex += color.toString(16);
+    }
+    return hex;
+  }
+
   addElement() {
     let element = new DraggableElement();
+    element.setAttribute('color', this.getRandomColorHex());
     this.contentContainer.appendChild(element);
   }
 }
